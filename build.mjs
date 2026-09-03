@@ -121,5 +121,4 @@ for (const e of readdirSync('dist/uploads', { withFileTypes: true })) {
 }
 console.log(`  pruned ${(freed / 1024 / 1024).toFixed(1)} MB of unreferenced uploads`);
 
-writeFileSync('dist/vercel.json', JSON.stringify({ cleanUrls: true, trailingSlash: false }, null, 2) + '\n');
 console.log('done');
