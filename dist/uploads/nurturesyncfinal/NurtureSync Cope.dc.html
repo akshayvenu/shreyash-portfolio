@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    :root { --font-display:'DM Serif Display', serif; --font-body:'Plus Jakarta Sans', sans-serif; }
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { margin:0; font-family:var(--font-body); background:#F1EFF8; }
+    @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-7px); } }
+    @keyframes timerPulse { 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.04); } }
+    @keyframes breatheIn { 0%{ transform:scale(0.78); } 100%{ transform:scale(1.18); } }
+    @keyframes breatheOut { 0%{ transform:scale(1.18); } 100%{ transform:scale(0.78); } }
+    @keyframes toastEnter { from{ opacity:0; transform:translateX(-50%) translateY(-40px); } to{ opacity:1; transform:translateX(-50%) translateY(0); } }
+    @keyframes checkPop { 0%{ transform:scale(0); } 60%{ transform:scale(1.2); } 100%{ transform:scale(1); } }
+    @keyframes slideUp { from{ transform:translate(-50%, 100%); } to{ transform:translate(-50%, 0); } }
+    @keyframes overlayIn { from{ opacity:0; } to{ opacity:1; } }
+    .nobar::-webkit-scrollbar { display:none; }
+    .inner-scroll::-webkit-scrollbar { width:3px; }
+    .inner-scroll::-webkit-scrollbar-thumb { background:#D9BEE0; border-radius:9999px; }
+  </style>
+</helmet>
+<div style="min-height:100vh; background:#F1EFF8; display:flex; align-items:center; justify-content:center;">
+  <div style="width:390px; height:100vh; max-height:844px; background:#FAFAFA; border-radius:40px; overflow:hidden; box-shadow:0 25px 80px rgba(0,0,0,0.18); display:flex; flex-direction:column; position:relative; font-family:var(--font-body);">
+
+    <div style="height:56px; flex-shrink:0; background:#fff; border-bottom:1px solid #E8E6F0; padding:0 20px; display:flex; align-items:center; justify-content:space-between; position:relative;">
+      <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); border-radius:0 2px 2px 0;"></div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <img src="https://img.icons8.com/3d-fluency/100/sakura.png" width="18" height="18" alt="" style="filter:drop-shadow(0 1px 4px rgba(0,0,0,0.12));" />
+        <div style="font-family:var(--font-body); font-size:17px; font-weight:700; color:#1A1A2E;">Wellness</div>
+      </div>
+      <div style="font-family:var(--font-body); font-size:16px; font-weight:700; color:#1A1A2E; position:absolute; left:50%; transform:translateX(-50%);">Cope</div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="https://img.icons8.com/3d-fluency/100/umbrella.png" width="22" height="22" alt="" style="filter:drop-shadow(0 1px 4px rgba(0,0,0,0.12));" />
+        <div onClick="{{ onStreak }}" style="background:#FEF3C7; border:1px solid #FCD34D; border-radius:9999px; padding:4px 10px; display:flex; gap:5px; align-items:center; cursor:pointer;">
+          <img src="https://img.icons8.com/3d-fluency/100/fire-element.png" width="14" height="14" alt="" />
+          <span style="font-family:var(--font-display); font-size:14px; color:#D97706;">7</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:40px; flex-shrink:0; background:#F5EEF7; border-bottom:1px solid #D9BEE0; padding:0 20px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <img src="https://img.icons8.com/3d-fluency/100/sparkles.png" width="16" height="16" alt="" style="filter:drop-shadow(0 1px 4px rgba(0,0,0,0.10));" />
+        <span style="font-size:12px; font-weight:700; color:#5C3566;">For you right now ✨</span>
+      </div>
+      <span style="font-size:11px; color:#9B6FA0; font-weight:600;">Menstrual · Low mood · Day 3</span>
+    </div>
+
+    <div style="flex-shrink:0; background:#FAFAFA; border-bottom:1px solid #E8E6F0; padding:10px 20px;">
+      <div class="nobar" style="display:flex; gap:8px; overflow-x:auto;">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+          <button onClick="{{ f.onClick }}" style="{{ f.style }}"><span style="font-size:14px;">{{ f.icon }}</span>{{ f.label }}<sc-if value="{{ f.isAll }}" hint-placeholder-val="{{ true }}"><span style="{{ f.countStyle }}">{{ f.count }}</span></sc-if></button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="inner-scroll" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; padding:16px 20px 24px; display:flex; flex-direction:column; gap:12px;">
+
+      <sc-if value="{{ hasFeatured }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ onFeatured }}" style="flex-shrink:0; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); border-radius:24px; padding:20px; position:relative; overflow:hidden; cursor:pointer;">
+          <div style="position:absolute; top:-30px; right:-30px; width:130px; height:130px; background:rgba(255,255,255,0.08); border-radius:50%; pointer-events:none;"></div>
+          <sc-if value="{{ featuredDone }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; top:12px; right:12px; display:flex; align-items:center; gap:5px; background:rgba(255,255,255,0.20); border-radius:9999px; padding:4px 12px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span style="font-size:11px; font-weight:700; color:#fff;">Done</span>
+            </div>
+          </sc-if>
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="width:52px; height:52px; background:rgba(255,255,255,0.18); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <img src="{{ featuredIcon }}" width="36" height="36" alt="" style="filter:drop-shadow(0 4px 10px rgba(0,0,0,0.20)); animation:float 3s ease-in-out infinite;" />
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+                <div style="background:rgba(255,255,255,0.20); color:#fff; font-size:10px; font-weight:700; text-transform:uppercase; border-radius:9999px; padding:3px 10px; letter-spacing:0.5px;">{{ featuredCat }}</div>
+                <div style="background:rgba(255,255,255,0.20); color:#fff; font-size:11px; font-weight:700; border-radius:9999px; padding:3px 10px;">{{ featuredDuration }}</div>
+              </div>
+              <div style="font-family:var(--font-display); font-size:22px; color:#fff; line-height:1.1; margin-bottom:6px;">{{ featuredTitle }}</div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.80); line-height:1.5; margin-bottom:14px;">{{ featuredSubtitle }}</div>
+              <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.22); color:#fff; border-radius:12px; padding:10px 18px; font-size:14px; font-weight:600;">{{ featuredStart }}</div>
+              <div style="margin-top:10px; display:flex; gap:6px; align-items:center;">
+                <img src="https://img.icons8.com/3d-fluency/100/umbrella.png" width="14" height="14" alt="" />
+                <span style="font-size:11px; color:rgba(255,255,255,0.65);">Matched to your Menstrual phase + low mood</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-for list="{{ restTools }}" as="t" hint-placeholder-count="0">
+        <div onClick="{{ t.onClick }}" style="{{ t.cardStyle }}">
+          <div style="{{ t.iconWrapStyle }}">
+            <img src="{{ t.icon }}" width="30" height="30" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));" />
+          </div>
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:3px;">
+              <div style="background:#F5EEF7; color:#9B6FA0; border:1px solid #D9BEE0; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; border-radius:9999px; padding:2px 8px;">{{ t.catLabel }}</div>
+              <div style="background:#F1F5F9; color:#7A7A9A; font-size:10px; font-weight:600; border-radius:9999px; padding:2px 8px;">⏱ {{ t.duration }}</div>
+            </div>
+            <div style="font-size:15px; font-weight:700; color:#1A1A2E; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ t.title }}</div>
+            <div style="font-size:12px; color:#7A7A9A; margin-top:2px;">{{ t.subtitle }}</div>
+          </div>
+          <sc-if value="{{ t.completed }}" hint-placeholder-val="{{ false }}">
+            <div style="width:32px; height:32px; background:#DCFCE7; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:checkPop 300ms ease-out both;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </sc-if>
+          <sc-if value="{{ t.notCompleted }}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8A8C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </sc-if>
+        </div>
+      </sc-for>
+
+      <div style="flex-shrink:0; margin-top:8px; padding-top:16px; border-top:1px solid #E8E6F0; text-align:center;">
+        <img src="https://img.icons8.com/3d-fluency/100/brain.png" width="32" height="32" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10)); margin-bottom:8px;" />
+        <div style="font-size:14px; font-weight:600; color:#4A4A6A; margin-bottom:4px;">Not what you need right now?</div>
+        <div style="font-size:12px; color:#7A7A9A; line-height:1.6; margin-bottom:12px; max-width:280px; margin-left:auto; margin-right:auto;">These tools are matched to your Menstrual phase and low mood. If nothing feels right, that's also valid.</div>
+        <div style="display:flex; gap:20px; justify-content:center;">
+          <div onClick="{{ onSeeAll }}" style="color:#9B6FA0; font-size:13px; font-weight:600; cursor:pointer; text-decoration:underline;">See all tools →</div>
+          <div onClick="{{ onLogTab }}" style="color:#7A7A9A; font-size:13px; font-weight:500; cursor:pointer; text-decoration:underline;">Log how I feel →</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="height:72px; flex-shrink:0; background:#fff; border-top:1px solid #E8E6F0; display:flex; position:relative;">
+      <div onClick="{{ onHome }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ homeColor }};">
+        <sc-if value="{{ homeActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Home</span>
+      </div>
+      <div onClick="{{ onLogTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ logColor }};">
+        <sc-if value="{{ logActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Log</span>
+      </div>
+      <div onClick="{{ onCopeTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:4px; cursor:pointer; padding-bottom:10px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); box-shadow:0 4px 16px rgba(155,111,160,0.40); margin-top:-14px; display:flex; align-items:center; justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"></path></svg>
+        </div>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:#9B6FA0;">Cope</span>
+      </div>
+      <div onClick="{{ onCalTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ calColor }};">
+        <sc-if value="{{ calActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Calendar</span>
+      </div>
+      <div onClick="{{ onMeTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ meColor }};">
+        <sc-if value="{{ meActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Me</span>
+      </div>
+    </div>
+
+    <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ onCloseSheet }}" style="position:absolute; inset:0; background:rgba(0,0,0,0.40); z-index:100; animation:overlayIn 250ms ease-out both;"></div>
+      <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:390px; background:#fff; border-radius:24px 24px 0 0; max-height:80%; overflow:hidden; display:flex; flex-direction:column; z-index:101; animation:slideUp 320ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <div style="width:40px; height:4px; background:#E8E6F0; border-radius:9999px; margin:12px auto 0;"></div>
+        <div class="inner-scroll" style="padding:16px 24px 36px; overflow-y:auto; flex:1;">
+          <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+            <div style="{{ sheetIconWrap }}">
+              <img src="{{ sheetIcon }}" width="36" height="36" alt="" style="filter:drop-shadow(0 3px 8px rgba(0,0,0,0.12)); animation:float 3s ease-in-out infinite;" />
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex; gap:8px; margin-bottom:4px;">
+                <div style="background:#F5EEF7; color:#9B6FA0; border:1px solid #D9BEE0; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; border-radius:9999px; padding:2px 8px;">{{ sheetCat }}</div>
+                <div style="background:#F1F5F9; color:#7A7A9A; font-size:10px; font-weight:600; border-radius:9999px; padding:2px 8px;">⏱ {{ sheetDuration }}</div>
+              </div>
+              <div style="font-family:var(--font-display); font-size:22px; color:#1A1A2E; line-height:1.1;">{{ sheetTitle }}</div>
+            </div>
+          </div>
+
+          <div style="background:#F5EEF7; border:1px solid #D9BEE0; border-radius:14px; padding:14px 16px; margin-bottom:16px; font-size:14px; color:#1A1A2E; line-height:1.7;">{{ sheetDesc }}</div>
+
+          <sc-if value="{{ isBreathe }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center; margin-bottom:16px;">
+              <div onClick="{{ onBreatheCircle }}" style="width:120px; height:120px; border-radius:50%; margin:0 auto 14px; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); box-shadow:0 8px 32px rgba(155,111,160,0.35); display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; {{ breatheAnim }}">
+                <div style="font-family:var(--font-display); font-size:16px; color:#fff; line-height:1;">{{ breatheLabel }}</div>
+                <sc-if value="{{ breatheCounting }}" hint-placeholder-val="{{ false }}"><div style="font-size:28px; font-weight:700; color:rgba(255,255,255,0.90); margin-top:4px;">{{ breatheSecs }}</div></sc-if>
+              </div>
+              <div style="display:flex; gap:6px; justify-content:center; align-items:center; margin-bottom:6px;">
+                <sc-for list="{{ cycleDots }}" as="d" hint-placeholder-count="4"><div style="{{ d.style }}"></div></sc-for>
+              </div>
+              <div style="font-size:12px; color:#7A7A9A;">Cycle {{ breatheCount }} of 4</div>
+              <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:1px solid #E8E6F0;">
+                <div style="text-align:center; flex:1;"><div style="font-family:var(--font-display); font-size:18px; color:#9B6FA0;">4</div><div style="font-size:10px; text-transform:uppercase; color:#7A7A9A; letter-spacing:0.5px;">Inhale</div></div>
+                <div style="text-align:center; flex:1;"><div style="font-family:var(--font-display); font-size:18px; color:#9B6FA0;">7</div><div style="font-size:10px; text-transform:uppercase; color:#7A7A9A; letter-spacing:0.5px;">Hold</div></div>
+                <div style="text-align:center; flex:1;"><div style="font-family:var(--font-display); font-size:18px; color:#9B6FA0;">8</div><div style="font-size:10px; text-transform:uppercase; color:#7A7A9A; letter-spacing:0.5px;">Exhale</div></div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ hasTimer }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center; margin-bottom:16px;">
+              <div style="font-family:var(--font-display); font-size:48px; color:#9B6FA0; line-height:1;">{{ sheetDuration }}</div>
+              <div style="font-size:12px; color:#7A7A9A; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Suggested time</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:14px; color:#4A4A6A; text-align:center; margin-bottom:16px;">Open-ended · Stay as long as feels right.</div>
+          </sc-if>
+
+          <div style="background:#F5EEF7; border-radius:10px; padding:10px 14px; margin-bottom:16px; display:flex; gap:8px; align-items:center;">
+            <img src="https://img.icons8.com/3d-fluency/100/umbrella.png" width="16" height="16" alt="" />
+            <span style="font-size:12px; color:#9B6FA0; font-weight:600;">Matched for Menstrual phase + low mood</span>
+          </div>
+
+          <sc-if value="{{ sheetNotCompleted }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <button onClick="{{ onMarkDone }}" style="width:100%; height:52px; border-radius:14px; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); color:#fff; border:none; font-family:var(--font-body); font-size:15px; font-weight:600; box-shadow:0 6px 20px rgba(155,111,160,0.28); cursor:pointer;">{{ sheetCtaLabel }}</button>
+              <div style="font-size:12px; color:#A8A8C0; text-align:center; margin-top:8px;">You don't have to finish it. Trying counts.</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sheetCompleted }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="background:#F0FDF4; border:1px solid #86EFAC; border-radius:14px; padding:14px 16px; text-align:center;">
+                <div style="display:flex; justify-content:center; margin-bottom:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div style="font-size:15px; font-weight:700; color:#065F46; margin-bottom:4px;">{{ sheetTitle }} done 🌿</div>
+                <div style="font-size:13px; color:#16A34A;">Come back anytime.</div>
+              </div>
+              <div onClick="{{ onTryAgain }}" style="color:#9B6FA0; font-size:13px; font-weight:600; margin-top:10px; cursor:pointer; text-decoration:underline; text-align:center;">Try again →</div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showToast }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:16px; left:50%; transform:translateX(-50%); z-index:999; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); color:#fff; border-radius:9999px; padding:10px 20px; font-size:14px; font-weight:600; box-shadow:0 8px 24px rgba(155,111,160,0.35); display:flex; align-items:center; gap:8px; white-space:nowrap; animation:toastEnter 350ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <img src="https://img.icons8.com/3d-fluency/100/like.png" width="18" height="18" alt="" />
+        {{ toastMsg }}
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  GRAD = 'linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0)';
+  TOOLS = [
+    { id:'breathe', cat:'breathe', emoji:'🌬', catLabel:'Breathe', icon:'https://img.icons8.com/3d-fluency/100/wind.png', iconBg:'#EAF4F7', title:'4-7-8 Breathing', subtitle:'Calms the nervous system', duration:'2 min', secs:120, description:'Inhale for 4, hold for 7, exhale for 8. Repeat 4 cycles. Works even if you only do 1.', priority:1, hasStepper:true, toast:'Breathing done 💨  Nervous system says thank you.' },
+    { id:'warmth', cat:'rest', emoji:'🍵', catLabel:'Rest', icon:'https://img.icons8.com/3d-fluency/100/tea.png', iconBg:'#FDF0EB', title:'Warm drink + rest', subtitle:'Soothes physical discomfort', duration:'5 min', secs:300, description:'Tea, warm water, or a warm compress. Your body is working hard right now. Let it rest.', priority:2, hasStepper:false, toast:'Rest noted 🍵  Small things count.' },
+    { id:'journal', cat:'write', emoji:'📝', catLabel:'Write', icon:'https://img.icons8.com/3d-fluency/100/journal.png', iconBg:'#F5EEF7', title:'Quick journal', subtitle:'Name what you feel', duration:'3 min', secs:180, description:'Write 3 sentences. What are you feeling? Where do you feel it? What would help right now?', priority:3, hasStepper:false, toast:'Journaled 📝  Naming it helps.' },
+    { id:'music', cat:'listen', emoji:'🎵', catLabel:'Listen', icon:'https://img.icons8.com/3d-fluency/100/headset.png', iconBg:'#EEF2FF', title:'Calming playlist', subtitle:'Low-stimulation audio', duration:'Open', secs:null, description:'Low BPM music, ambient sounds, or silence. Let your mind rest without input for a bit.', priority:4, hasStepper:false, toast:'Playlist opened 🎵  Let the sound do its thing.' },
+    { id:'stretch', cat:'move', emoji:'🧘', catLabel:'Move', icon:'https://img.icons8.com/3d-fluency/100/spa.png', iconBg:'#F0FDF4', title:'Gentle stretch', subtitle:'Eases cramp discomfort', duration:'7 min', secs:420, description:"Child's pose, cat-cow, and a slow hip opener. Only what feels good — stop if it doesn't.", priority:5, hasStepper:false, toast:'Stretch done 🧘  Movement is medicine.' },
+    { id:'meditation', cat:'breathe', emoji:'🌬', catLabel:'Breathe', icon:'https://img.icons8.com/3d-fluency/100/lotus.png', iconBg:'#F5EEF7', title:'Body scan', subtitle:'Grounding for heavy days', duration:'5 min', secs:300, description:'Close your eyes. Notice each part of your body without judgement. Start at your feet, move up slowly.', priority:6, hasStepper:false, toast:'Body scan done 🌿  That was something.' },
+    { id:'walk', cat:'move', emoji:'🧘', catLabel:'Move', icon:'https://img.icons8.com/3d-fluency/100/foot.png', iconBg:'#F0FDF4', title:'Short walk', subtitle:'Light movement, fresh air', duration:'10 min', secs:600, description:'Even a 5-minute walk outside (or around the room) shifts something. No goal, no pace.', priority:7, hasStepper:false, phasesMenstrual:false, toast:'Walk done 🚶  Movement counts.' },
+  ];
+  FILTERS = [
+    { id:'all', label:'All', icon:'✨' }, { id:'rest', label:'Rest', icon:'🍵' }, { id:'breathe', label:'Breathe', icon:'🌬' },
+    { id:'write', label:'Write', icon:'📝' }, { id:'listen', label:'Listen', icon:'🎵' }, { id:'move', label:'Move', icon:'🧘' },
+  ];
+
+  state = { activeFilter:'all', activeToolId:null, breathePhase:'ready', breatheCount:0, breatheSecs:0, completedTools:[], showToast:false, toastMsg:'', activeTab:'cope' };
+
+  componentWillUnmount(){ this.clearBreathe(); clearTimeout(this._toast); }
+  clearBreathe(){ clearInterval(this._iv); clearTimeout(this._to); }
+
+  menstrualTools(){ return this.TOOLS.filter(t=>t.id!=='walk').sort((a,b)=>a.priority-b.priority); }
+  filtered(){ let t=this.menstrualTools(); if(this.state.activeFilter!=='all') t=t.filter(x=>x.cat===this.state.activeFilter); return t; }
+
+  triggerToast(msg){ this.setState({ toastMsg:msg, showToast:true }); clearTimeout(this._toast); this._toast=setTimeout(()=>this.setState({ showToast:false }), 3000); }
+  openTool(id){ this.clearBreathe(); this.setState({ activeToolId:id, breathePhase:'ready', breatheCount:0, breatheSecs:0 }); }
+  closeSheet(){ this.clearBreathe(); this.setState({ activeToolId:null, breathePhase:'ready', breatheCount:0 }); }
+  markComplete(id, toast){ this.clearBreathe(); this.setState(s=>({ completedTools:[...s.completedTools, id], activeToolId:null })); this.triggerToast(toast||'Self-care noted 💛'); }
+  setTab(t){ if(this.props.onNavigate){ this.props.onNavigate(t); return; } this.setState({ activeTab:t }); }
+  setFilter(f){ this.setState({ activeFilter:f }); }
+
+  startBreathe(){ if(this.state.breathePhase!=='ready' && this.state.breathePhase!=='done') return; this.setState({ breathePhase:'inhale', breatheCount:0 }); this.runCycle(1); }
+  runCycle(n){ this.setState({ breatheCount:n });
+    this.phase('inhale',4,()=> this.phase('hold',7,()=> this.phase('exhale',8,()=>{ if(n<4){ this.runCycle(n+1); } else { this.clearBreathe(); this.setState({ breathePhase:'done' }); } })));
+  }
+  phase(name,secs,done){
+    this.setState({ breathePhase:name, breatheSecs:secs });
+    clearInterval(this._iv);
+    this._iv=setInterval(()=>{ this.setState(s=>({ breatheSecs: Math.max(0, s.breatheSecs-1) })); }, 1000);
+    clearTimeout(this._to);
+    this._to=setTimeout(()=>{ clearInterval(this._iv); done(); }, secs*1000);
+  }
+
+  renderVals(){
+    const S=this.state, P='#9B6FA0';
+    const completed=(id)=>S.completedTools.includes(id);
+
+    const filters = this.FILTERS.map(f=>{
+      const on=S.activeFilter===f.id;
+      return { icon:f.icon, label:f.label, isAll:f.id==='all', count:this.menstrualTools().length,
+        onClick:()=>this.setFilter(f.id),
+        style:{ display:'flex', alignItems:'center', gap:6, height:34, padding:'0 14px', borderRadius:9999, border:'none', fontFamily:'var(--font-body)', fontSize:13, fontWeight:600, cursor:'pointer', flexShrink:0, transition:'all 200ms',
+          background: on?this.GRAD:'#fff', color: on?'#fff':'#7A7A9A',
+          boxShadow: on?'0 3px 10px rgba(155,111,160,0.28)':'0 1px 3px rgba(0,0,0,0.06)', outline: on?'none':'1.5px solid #E8E6F0' },
+        countStyle:{ background: on?'rgba(255,255,255,0.25)':'#F5EEF7', color: on?'#fff':P, borderRadius:9999, padding:'1px 7px', fontSize:10, fontWeight:700 },
+      };
+    });
+
+    const list = this.filtered();
+    const feat = list[0] || null;
+    const rest = list.slice(1).map(t=>{
+      const c=completed(t.id);
+      return { icon:t.icon, catLabel:(t.emoji+' '+t.catLabel), duration:t.duration, title:t.title, subtitle:t.subtitle,
+        completed:c, notCompleted:!c, onClick:()=>this.openTool(t.id),
+        cardStyle:{ flexShrink:0, background: c?'#F0FDF4':'#fff', border: c?'1px solid #86EFAC':'1px solid #E8E6F0', borderRadius:20, padding:16, display:'flex', alignItems:'center', gap:14, cursor:'pointer', transition:'all 200ms', position:'relative', overflow:'hidden' },
+        iconWrapStyle:{ width:48, height:48, background:t.iconBg, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 },
+      };
+    });
+
+    // sheet
+    const tool = S.activeToolId ? this.TOOLS.find(t=>t.id===S.activeToolId) : null;
+    let sheet = {};
+    if(tool){
+      const c=completed(tool.id);
+      const bp=S.breathePhase;
+      const breatheLabel = bp==='ready'?'Tap to start': bp==='inhale'?'Inhale…': bp==='hold'?'Hold…': bp==='exhale'?'Exhale…': bp==='done'?'✓ Done':'';
+      let breatheAnim='animation:timerPulse 2s ease-in-out infinite;';
+      if(bp==='inhale') breatheAnim='animation:breatheIn 4s ease-in-out forwards;';
+      else if(bp==='hold') breatheAnim='transform:scale(1.18);';
+      else if(bp==='exhale') breatheAnim='animation:breatheOut 8s ease-in-out forwards;';
+      const cycleDots=[1,2,3,4].map(i=>({ style:{ width:8, height:8, borderRadius:'50%', background: i<=S.breatheCount?P:'#E8E6F0' } }));
+      const ctaLabel = tool.hasStepper ? (bp==='done'?'Mark as done ✓':'Start above to begin') : 'Mark as done ✓';
+      sheet = {
+        sheetOpen:true, sheetIcon:tool.icon, sheetCat:(tool.emoji+' '+tool.catLabel), sheetDuration:tool.duration, sheetTitle:tool.title, sheetDesc:tool.description,
+        sheetIconWrap:{ width:56, height:56, background:tool.iconBg, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 },
+        isBreathe: tool.hasStepper, hasTimer: !tool.hasStepper && tool.secs!=null, isOpen: !tool.hasStepper && tool.secs==null,
+        breatheLabel, breatheAnim, breatheSecs:S.breatheSecs, breatheCount:S.breatheCount, breatheCounting: bp==='inhale'||bp==='hold'||bp==='exhale', cycleDots,
+        sheetNotCompleted:!c, sheetCompleted:c, sheetCtaLabel:ctaLabel,
+        onBreatheCircle:()=>this.startBreathe(),
+        onMarkDone:()=>this.markComplete(tool.id, tool.toast),
+        onTryAgain:()=>this.setState(s=>({ completedTools:s.completedTools.filter(x=>x!==tool.id) })),
+      };
+    } else { sheet={ sheetOpen:false }; }
+
+    const at=S.activeTab; const col=(id)=> at===id?P:'#A8A8C0';
+
+    return {
+      filters,
+      hasFeatured: !!feat,
+      featuredIcon: feat?feat.icon:'', featuredCat: feat?(feat.emoji+' '+feat.catLabel):'', featuredDuration: feat?feat.duration:'',
+      featuredTitle: feat?feat.title:'', featuredSubtitle: feat?feat.subtitle:'',
+      featuredDone: feat?completed(feat.id):false,
+      featuredStart: feat ? (completed(feat.id)?'✓ Done — try again?':(feat.hasStepper?'Start breathing guide →':'Start →')) : '',
+      onFeatured: feat?(()=>this.openTool(feat.id)):(()=>{}),
+      restTools: rest,
+      onSeeAll:()=>this.setFilter('all'),
+      onStreak:()=>this.triggerToast('🔥 7-day streak — small steps, every day.'),
+      ...sheet,
+      onCloseSheet:()=>this.closeSheet(),
+      showToast:S.showToast, toastMsg:S.toastMsg,
+      onHome:()=>this.setTab('home'), onLogTab:()=>this.setTab('log'), onCopeTab:()=>this.setTab('cope'), onCalTab:()=>this.setTab('calendar'), onMeTab:()=>this.setTab('me'),
+      homeColor:col('home'), logColor:col('log'), calColor:col('calendar'), meColor:col('me'),
+      homeActive:at==='home', logActive:at==='log', calActive:at==='calendar', meActive:at==='me',
+    };
+  }
+}
+</script>
+</body>
+</html>

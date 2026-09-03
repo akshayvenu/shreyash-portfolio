@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    :root { --font-display:'DM Serif Display', serif; --font-body:'Plus Jakarta Sans', sans-serif; }
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { margin:0; font-family:var(--font-body); background:#F1EFF8; }
+    @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-7px); } }
+    @keyframes toastEnter { from{ opacity:0; transform:translateX(-50%) translateY(-40px); } to{ opacity:1; transform:translateX(-50%) translateY(0); } }
+    @keyframes slideUp { from{ transform:translate(-50%, 100%); } to{ transform:translate(-50%, 0); } }
+    @keyframes overlayIn { from{ opacity:0; } to{ opacity:1; } }
+    @keyframes safePulse { 0%,100%{ box-shadow:0 0 0 0 rgba(5,150,105,0); } 50%{ box-shadow:0 0 0 6px rgba(5,150,105,0.15); } }
+    .inner-scroll::-webkit-scrollbar { width:3px; }
+    .inner-scroll::-webkit-scrollbar-thumb { background:#D9BEE0; border-radius:9999px; }
+  </style>
+</helmet>
+<div style="min-height:100vh; background:#F1EFF8; display:flex; align-items:center; justify-content:center;">
+  <div style="width:390px; height:100vh; max-height:844px; background:#FAFAFA; border-radius:40px; overflow:hidden; box-shadow:0 25px 80px rgba(0,0,0,0.18); display:flex; flex-direction:column; position:relative; font-family:var(--font-body);">
+
+    <div style="height:56px; flex-shrink:0; background:#fff; border-bottom:1px solid #E8E6F0; padding:0 16px; display:flex; align-items:center; justify-content:space-between; position:relative;">
+      <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); border-radius:0 2px 2px 0;"></div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <div onClick="{{ onBack }}" aria-label="Back" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; margin-left:-6px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A7A9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </div>
+        <img src="https://img.icons8.com/3d-fluency/100/sakura.png" width="18" height="18" alt="" style="filter:drop-shadow(0 1px 4px rgba(0,0,0,0.12));" />
+        <div style="font-family:var(--font-body); font-size:15px; font-weight:700; color:#1A1A2E;">Wellness</div>
+      </div>
+      <div style="font-family:var(--font-body); font-size:15px; font-weight:700; color:#1A1A2E; position:absolute; left:50%; transform:translateX(-50%); white-space:nowrap;">Privacy &amp; Safety 🔒</div>
+      <sc-if value="{{ safeOn }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#D1FAE5; border:1px solid #6EE7B7; color:#059669; display:flex; gap:5px; align-items:center; border-radius:9999px; padding:5px 10px; animation:safePulse 3s ease-in-out infinite;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <span style="font-size:11px; font-weight:700;">Safe Mode ON</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ safeOff }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#F1F5F9; border:1px solid #E8E6F0; color:#7A7A9A; border-radius:9999px; padding:5px 10px; font-size:11px; font-weight:600;">Safe Mode OFF</div>
+      </sc-if>
+    </div>
+
+    <div class="inner-scroll" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; padding:0 0 24px;">
+
+      <sc-if value="{{ safeOn }}" hint-placeholder-val="{{ true }}">
+        <div style="margin:16px 20px 0; border-radius:20px; overflow:hidden; background:linear-gradient(145deg, #D1FAE5, #ECFDF5); border:2px solid #6EE7B7; padding:20px; position:relative;">
+          <div style="position:absolute; top:-16px; right:-16px; width:100px; height:100px; background:rgba(5,150,105,0.08); border-radius:50%; pointer-events:none;"></div>
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+            <div style="width:52px; height:52px; background:rgba(5,150,105,0.12); border-radius:50%; display:flex; align-items:center; justify-content:center; animation:safePulse 3s ease-in-out infinite;">
+              <img src="https://img.icons8.com/3d-fluency/100/shield.png" width="32" height="32" alt="" style="filter:drop-shadow(0 4px 10px rgba(5,150,105,0.25)); animation:float 3s ease-in-out infinite;" />
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:20px; color:#065F46;">Safe Mode is ON</div>
+              <div style="font-size:13px; color:#059669; margin-top:4px; font-weight:500;">Your app appears as '{{ displayName }}' on this device</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:13px; color:#065F46;">Home screen shows a plain '{{ displayName }}' icon</span></div>
+          <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:13px; color:#065F46;">App name hidden from recent apps</span></div>
+          <div style="display:flex; gap:10px; align-items:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:13px; color:#065F46;">Cycle language replaced with neutral terms</span></div>
+          <div style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(5,150,105,0.15);">
+            <div style="font-size:12px; font-weight:600; color:#065F46; margin-bottom:8px;">Display name on your phone:</div>
+            <div style="display:flex; gap:8px;">
+              <button onClick="{{ onChooseWellness }}" style="{{ wellnessChipStyle }}">Wellness</button>
+              <button onClick="{{ onChooseJournal }}" style="{{ journalChipStyle }}">My Journal</button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ safeOff }}" hint-placeholder-val="{{ false }}">
+        <div style="margin:16px 20px 0; border-radius:20px; background:#fff; border:2px dashed #E8E6F0; padding:20px;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+            <div style="width:52px; height:52px; background:#F1F5F9; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <img src="https://img.icons8.com/3d-fluency/100/shield.png" width="32" height="32" alt="" style="filter:grayscale(0.6) drop-shadow(0 2px 6px rgba(0,0,0,0.08));" />
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:20px; color:#4A4A6A;">Safe Mode is OFF</div>
+              <div style="font-size:13px; color:#7A7A9A; margin-top:4px;">App appears normally on your device</div>
+            </div>
+          </div>
+          <button onClick="{{ onSafeOn }}" style="background:linear-gradient(135deg, #059669, #047857); color:#fff; height:44px; border-radius:12px; width:100%; border:none; font-family:var(--font-body); font-size:14px; font-weight:600; box-shadow:0 4px 14px rgba(5,150,105,0.28); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+            Turn on Safe Mode
+          </button>
+        </div>
+      </sc-if>
+
+      <div style="padding:14px 20px 8px; display:flex; align-items:center; gap:10px;"><div style="flex:1; height:1px; background:#E8E6F0;"></div><div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#A8A8C0; white-space:nowrap; padding:0 4px;">Safe Mode</div><div style="flex:1; height:1px; background:#E8E6F0;"></div></div>
+      <div style="background:#fff; border:1px solid #E8E6F0; border-radius:20px; overflow:hidden; margin:0 20px;">
+        <div style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+          <div style="{{ safeRowIconBg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ safeRowIconColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Safe Mode</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">{{ safeSub }}</div></div>
+          <div onClick="{{ onToggleSafe }}" style="{{ safeTrack }}"><div style="{{ safeDot }}"></div></div>
+        </div>
+      </div>
+
+      <div style="padding:14px 20px 8px; display:flex; align-items:center; gap:10px;"><div style="flex:1; height:1px; background:#E8E6F0;"></div><div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#A8A8C0; white-space:nowrap; padding:0 4px;">Your Data</div><div style="flex:1; height:1px; background:#E8E6F0;"></div></div>
+      <div style="background:#fff; border:1px solid #E8E6F0; border-radius:20px; overflow:hidden; margin:0 20px;">
+        <div style="padding:16px 20px; border-bottom:1px solid #F8F8FC; display:flex; align-items:center; gap:14px;">
+          <div style="width:40px; height:40px; background:#D1FAE5; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Stored on your device only</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">No servers. No cloud. Your data never leaves this phone.</div></div>
+          <div style="background:#D1FAE5; color:#059669; border:1px solid #6EE7B7; font-size:9px; font-weight:700; text-transform:uppercase; padding:4px 8px; border-radius:9999px; letter-spacing:0.5px; flex-shrink:0;">Always ON</div>
+        </div>
+        <div style="padding:16px 20px; border-bottom:1px solid #F8F8FC; display:flex; align-items:center; gap:14px;">
+          <div style="{{ skipIconBg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ skipIconColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Skip sensitive questions</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Topics like libido and body image won't appear</div></div>
+          <div onClick="{{ onToggleSkip }}" style="{{ skipTrack }}"><div style="{{ skipDot }}"></div></div>
+        </div>
+        <sc-if value="{{ skipOff }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:10px 20px; background:#FEF3C7; border-bottom:1px solid #FCD34D; display:flex; gap:8px; align-items:center;">
+            <img src="https://img.icons8.com/3d-fluency/100/sparkles.png" width="14" height="14" alt="" />
+            <span style="font-size:11px; color:#D97706; font-weight:500;">These questions are always optional even if shown.</span>
+          </div>
+        </sc-if>
+        <div style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+          <div style="{{ analyticsIconBg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ analyticsIconColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Anonymous usage data</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Helps improve NurtureSync. Never linked to you.</div></div>
+          <div onClick="{{ onToggleAnalytics }}" style="{{ analyticsTrack }}"><div style="{{ analyticsDot }}"></div></div>
+        </div>
+      </div>
+
+      <div style="padding:14px 20px 8px; display:flex; align-items:center; gap:10px;"><div style="flex:1; height:1px; background:#E8E6F0;"></div><div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#A8A8C0; white-space:nowrap; padding:0 4px;">Partner Sharing</div><div style="flex:1; height:1px; background:#E8E6F0;"></div></div>
+      <div style="background:#fff; border:1px solid #E8E6F0; border-radius:20px; overflow:hidden; margin:0 20px;">
+        <div style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+          <div style="{{ partnerIconBg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ partnerIconColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Partner sharing</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Share a message in your own words — your choice</div></div>
+          <div onClick="{{ onTogglePartner }}" style="{{ partnerTrack }}"><div style="{{ partnerDot }}"></div></div>
+        </div>
+        <sc-if value="{{ partnerOn }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:14px 20px; border-top:1px solid #F8F8FC;">
+            <div style="display:flex; gap:10px; align-items:flex-start; background:#F5EEF7; border-radius:12px; padding:12px 14px; margin-bottom:12px;">
+              <img src="https://img.icons8.com/3d-fluency/100/journal.png" width="18" height="18" alt="" style="filter:drop-shadow(0 1px 4px rgba(0,0,0,0.10)); flex-shrink:0; margin-top:1px;" />
+              <div><div style="font-size:13px; font-weight:700; color:#5C3566; margin-bottom:4px;">You write, you share.</div><div style="font-size:12px; color:#4A4A6A; line-height:1.6;">Write what your phase feels like for you. NurtureSync never shares raw data — only what you write here.</div></div>
+            </div>
+            <button onClick="{{ onOpenPartner }}" style="background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); color:#fff; height:48px; border-radius:12px; width:100%; border:none; font-family:var(--font-body); font-size:14px; font-weight:600; display:flex; gap:8px; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 14px rgba(155,111,160,0.25);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+              Write my message
+            </button>
+            <div style="font-size:11px; color:#A8A8C0; margin-top:10px; text-align:center;">Last shared: Never</div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="padding:14px 20px 8px; display:flex; align-items:center; gap:10px;"><div style="flex:1; height:1px; background:#E8E6F0;"></div><div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#A8A8C0; white-space:nowrap; padding:0 4px;">Security</div><div style="flex:1; height:1px; background:#E8E6F0;"></div></div>
+      <div style="background:#fff; border:1px solid #E8E6F0; border-radius:20px; overflow:hidden; margin:0 20px;">
+        <div style="padding:16px 20px; border-bottom:1px solid #F8F8FC; display:flex; align-items:center; gap:14px;">
+          <div style="{{ bioIconBg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ bioIconColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11v2a9 9 0 0 1-.5 3"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16c.5 1 1 2 1 4"></path><path d="M12 7a5 5 0 0 1 5 5v1a14 14 0 0 0 .3 3"></path><path d="M8.5 9.5a3.5 3.5 0 0 1 6 2.5v1a18 18 0 0 0 .8 5"></path></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Lock with Face ID / fingerprint</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Require authentication to open NurtureSync</div></div>
+          <div onClick="{{ onToggleBio }}" style="{{ bioTrack }}"><div style="{{ bioDot }}"></div></div>
+        </div>
+        <div style="padding:16px 20px; border-bottom:1px solid #F8F8FC; display:flex; align-items:center; gap:14px;">
+          <div style="width:40px; height:40px; background:#F1F5F9; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A7A9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#1A1A2E;">Export your data</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Download all your logs as a file</div></div>
+          <button onClick="{{ onExport }}" style="background:#F1F5F9; color:#4A4A6A; border:1px solid #E8E6F0; border-radius:10px; padding:7px 14px; font-family:var(--font-body); font-size:12px; font-weight:600; cursor:pointer;">Export</button>
+        </div>
+        <div style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+          <div style="width:40px; height:40px; background:#FEF2F2; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></div>
+          <div style="flex:1;"><div style="font-size:14px; font-weight:600; color:#DC2626;">Delete all my data</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Permanently removes all logs, settings, and history</div></div>
+          <button onClick="{{ onOpenDelete }}" style="background:#FEF2F2; color:#DC2626; border:1px solid #FECACA; border-radius:10px; padding:7px 14px; font-family:var(--font-body); font-size:12px; font-weight:600; cursor:pointer;">Delete</button>
+        </div>
+      </div>
+
+      <div style="padding:14px 20px 8px; display:flex; align-items:center; gap:10px;"><div style="flex:1; height:1px; background:#E8E6F0;"></div><div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#A8A8C0; white-space:nowrap; padding:0 4px;">Support</div><div style="flex:1; height:1px; background:#E8E6F0;"></div></div>
+      <div style="background:#F5F3FF; border:1px solid #DDD6FE; border-radius:20px; overflow:hidden; margin:0 20px;">
+        <div style="padding:18px 20px; border-bottom:1px solid #DDD6FE; display:flex; align-items:center; gap:14px;">
+          <div style="width:44px; height:44px; background:rgba(124,58,237,0.10); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://img.icons8.com/3d-fluency/100/like.png" width="28" height="28" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10)); animation:float 3s ease-in-out infinite;" /></div>
+          <div><div style="font-family:var(--font-display); font-size:18px; color:#7C3AED;">You're not alone 💜</div><div style="font-size:13px; color:#6D28D9; margin-top:4px; line-height:1.5;">A calm space to reach out — whenever you need it.</div></div>
+        </div>
+        <div style="padding:16px 20px;">
+          <button onClick="{{ onOpenCrisis }}" style="background:linear-gradient(135deg, #7C3AED, #6D28D9); color:#fff; height:48px; border-radius:12px; width:100%; border:none; font-family:var(--font-body); font-size:14px; font-weight:600; box-shadow:0 4px 14px rgba(124,58,237,0.25); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;">
+            <img src="https://img.icons8.com/3d-fluency/100/like.png" width="18" height="18" alt="" style="filter:brightness(10);" />
+            I need support
+          </button>
+          <div style="font-size:12px; color:#7C3AED; margin-top:10px; text-align:center; font-weight:500;">This opens a private, calm space.</div>
+        </div>
+      </div>
+
+      <div style="background:#FEF3C7; border:1px solid #FCD34D; border-radius:20px; padding:16px 20px; margin:16px 20px 0;">
+        <div style="font-size:13px; font-weight:700; color:#D97706; margin-bottom:12px;">NurtureSync never:</div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Sells or shares your personal data</span></div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Requires you to answer any question</span></div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Sends your data to any server</span></div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Uses your data for advertising</span></div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Requires registration to use core features</span></div>
+        <div style="display:flex; gap:10px; align-items:center;"><span style="font-size:14px; font-weight:800; color:#DC2626;">✗</span><span style="font-size:13px; color:#4A4A6A;">Shares data with your partner without your action</span></div>
+      </div>
+
+      <div style="padding:20px; text-align:center;">
+        <div style="font-size:12px; color:#A8A8C0;">NurtureSync v1.0 · Research prototype</div>
+        <div style="font-size:11px; color:#A8A8C0; margin-top:4px;">Built on research by Shreyash Patekar</div>
+        <div style="font-size:11px; color:#A8A8C0; margin-top:2px;">KJ Somaiya Institute of Management, Mumbai</div>
+      </div>
+
+    </div>
+
+    <div style="height:72px; flex-shrink:0; background:#fff; border-top:1px solid #E8E6F0; display:flex; position:relative;">
+      <div onClick="{{ onHome }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ homeColor }};">
+        <sc-if value="{{ homeActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Home</span>
+      </div>
+      <div onClick="{{ onLogTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ logColor }};">
+        <sc-if value="{{ logActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Log</span>
+      </div>
+      <div onClick="{{ onCopeTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:4px; cursor:pointer; padding-bottom:10px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); box-shadow:0 4px 16px rgba(155,111,160,0.40); margin-top:-14px; display:flex; align-items:center; justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"></path></svg>
+        </div>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:#9B6FA0;">Cope</span>
+      </div>
+      <div onClick="{{ onCalTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ calColor }};">
+        <sc-if value="{{ calActive }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Calendar</span>
+      </div>
+      <div onClick="{{ onMeTab }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; padding:8px 0; position:relative; color:{{ meColor }};">
+        <sc-if value="{{ meActive }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; top:0; left:10%; right:10%; height:2px; background:#9B6FA0; border-radius:9999px;"></div></sc-if>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Me</span>
+      </div>
+    </div>
+
+    <sc-if value="{{ partnerSheet }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ onClosePartner }}" style="position:absolute; inset:0; background:rgba(0,0,0,0.40); z-index:100; animation:overlayIn 250ms ease-out both;"></div>
+      <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:390px; background:#fff; border-radius:24px 24px 0 0; max-height:84%; overflow:hidden; display:flex; flex-direction:column; z-index:101; animation:slideUp 300ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <div style="width:40px; height:4px; background:#E8E6F0; border-radius:9999px; margin:12px auto 0; flex-shrink:0;"></div>
+        <div style="padding:16px 24px; border-bottom:1px solid #E8E6F0; flex-shrink:0; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:10px;"><img src="https://img.icons8.com/3d-fluency/100/journal.png" width="24" height="24" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));" /><span style="font-family:var(--font-display); font-size:20px; color:#1A1A2E;">Write your message</span></div>
+          <button onClick="{{ onClosePartner }}" aria-label="Close" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A7A9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div style="padding:14px 24px; background:#F5EEF7; border-bottom:1px solid #D9BEE0; flex-shrink:0; font-size:13px; color:#4A4A6A; line-height:1.6;">This is YOUR message, in YOUR words. Write what you want your partner to understand about how you feel this phase. Nothing from your log is shared without your choice.</div>
+        <div style="padding:14px 24px; border-bottom:1px solid #E8E6F0; flex-shrink:0; background:#fff;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:#7A7A9A; letter-spacing:1px; margin-bottom:8px;">Suggested prompt for Menstrual phase:</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <div onClick="{{ onPrompt1 }}" style="border-radius:9999px; padding:6px 14px; background:#F5EEF7; border:1px solid #D9BEE0; color:#9B6FA0; font-size:12px; font-weight:500; cursor:pointer;">How my cycle feels right now</div>
+            <div onClick="{{ onPrompt2 }}" style="border-radius:9999px; padding:6px 14px; background:#F5EEF7; border:1px solid #D9BEE0; color:#9B6FA0; font-size:12px; font-weight:500; cursor:pointer;">What I need from you this week</div>
+            <div onClick="{{ onPrompt3 }}" style="border-radius:9999px; padding:6px 14px; background:#F5EEF7; border:1px solid #D9BEE0; color:#9B6FA0; font-size:12px; font-weight:500; cursor:pointer;">What helps me most today</div>
+          </div>
+        </div>
+        <div class="inner-scroll" style="flex:1; overflow-y:auto; padding:16px 24px;">
+          <textarea placeholder="Write what feels right. There's no template. For example: 'This week my energy is low. I'm not upset — just tired. I'd love a bit more quiet time...'" value="{{ partnerMessage }}" onInput="{{ onPartnerInput }}" style="width:100%; min-height:160px; padding:0; font-family:var(--font-body); font-size:15px; color:#1A1A2E; line-height:1.7; background:transparent; border:none; outline:none; resize:none;"></textarea>
+          <div style="font-size:11px; color:#A8A8C0; margin-top:8px; text-align:right;">{{ partnerLen }} characters</div>
+        </div>
+        <div style="padding:16px 24px; border-top:1px solid #E8E6F0; flex-shrink:0; display:flex; gap:10px;">
+          <button onClick="{{ onCopyPartner }}" style="flex:1; height:48px; border-radius:12px; background:#F1F5F9; color:#4A4A6A; border:1px solid #E8E6F0; font-family:var(--font-body); font-size:14px; font-weight:600; cursor:pointer;">Copy text</button>
+          <button onClick="{{ onSharePartner }}" disabled="{{ shareDisabled }}" style="{{ shareBtnStyle }}">Share →</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ crisisSheet }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ onCloseCrisis }}" style="position:absolute; inset:0; background:rgba(0,0,0,0.40); z-index:100; animation:overlayIn 250ms ease-out both;"></div>
+      <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:390px; background:#fff; border-radius:24px 24px 0 0; max-height:88%; overflow:hidden; display:flex; flex-direction:column; z-index:101; animation:slideUp 300ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <div style="width:40px; height:4px; background:#E8E6F0; border-radius:9999px; margin:12px auto 0; flex-shrink:0;"></div>
+        <div style="padding:16px 24px; background:#F5F3FF; border-bottom:1px solid #DDD6FE; flex-shrink:0; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:10px;"><img src="https://img.icons8.com/3d-fluency/100/like.png" width="28" height="28" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10)); animation:float 3s ease-in-out infinite;" /><span style="font-family:var(--font-display); font-size:22px; color:#7C3AED;">You're not alone 💜</span></div>
+          <button onClick="{{ onCloseCrisis }}" aria-label="Close" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="inner-scroll" style="flex:1; overflow-y:auto; padding:20px 24px;">
+          <div style="font-size:15px; color:#1A1A2E; line-height:1.7; margin-bottom:20px; font-style:italic;">Whatever brought you here — it matters. You don't have to explain it.</div>
+          <div style="background:#fff; border:1px solid #DDD6FE; border-radius:16px; padding:16px; margin-bottom:12px;">
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
+              <div style="width:40px; height:40px; background:#F5F3FF; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://img.icons8.com/3d-fluency/100/like.png" width="24" height="24" alt="" /></div>
+              <div><div style="font-size:14px; font-weight:700; color:#1A1A2E;">iCall — Psychological Support</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">Tata Institute of Social Sciences, Mumbai</div></div>
+            </div>
+            <div style="font-size:14px; font-weight:600; color:#7C3AED; margin-bottom:6px;">📞 9152987821</div>
+            <div style="font-size:12px; color:#7A7A9A; margin-bottom:10px;">🕐 Mon–Sat, 8am–10pm</div>
+            <a href="tel:9152987821" style="display:flex; align-items:center; justify-content:center; text-decoration:none; height:44px; border-radius:12px; background:linear-gradient(135deg, #7C3AED, #6D28D9); color:#fff; font-family:var(--font-body); font-size:14px; font-weight:600;">Call iCall →</a>
+          </div>
+          <div style="background:#fff; border:1px solid #DDD6FE; border-radius:16px; padding:16px; margin-bottom:12px;">
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
+              <div style="width:40px; height:40px; background:#F5F3FF; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://img.icons8.com/3d-fluency/100/like.png" width="24" height="24" alt="" /></div>
+              <div><div style="font-size:14px; font-weight:700; color:#1A1A2E;">Vandrevala Foundation Helpline</div><div style="font-size:12px; color:#7A7A9A; margin-top:2px;">24/7 mental health support, India</div></div>
+            </div>
+            <div style="font-size:14px; font-weight:600; color:#7C3AED; margin-bottom:6px;">📞 1860-2662-345</div>
+            <div style="font-size:12px; color:#7A7A9A; margin-bottom:10px;">🕐 Available 24 hours</div>
+            <a href="tel:18602662345" style="display:flex; align-items:center; justify-content:center; text-decoration:none; height:44px; border-radius:12px; background:linear-gradient(135deg, #7C3AED, #6D28D9); color:#fff; font-family:var(--font-body); font-size:14px; font-weight:600;">Call Vandrevala →</a>
+          </div>
+          <div onClick="{{ onCrisisJournal }}" style="background:#F5EEF7; border:1px solid #D9BEE0; border-radius:16px; padding:14px; margin-bottom:20px; display:flex; gap:12px; align-items:center; cursor:pointer;">
+            <img src="https://img.icons8.com/3d-fluency/100/journal.png" width="28" height="28" alt="" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));" />
+            <div style="flex:1;"><div style="font-size:14px; font-weight:700; color:#5C3566; margin-bottom:4px;">Write it out</div><div style="font-size:12px; color:#4A4A6A; line-height:1.5;">Sometimes putting words to feelings is the first step.</div></div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6FA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+          <div style="background:#F5F3FF; border-radius:12px; padding:12px 14px; font-size:12px; color:#6D28D9; line-height:1.6; text-align:center;">These are free, confidential services. You decide if and when to reach out. NurtureSync doesn't know if you call.</div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ deleteSheet }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ onCloseDelete }}" style="position:absolute; inset:0; background:rgba(0,0,0,0.40); z-index:100; animation:overlayIn 250ms ease-out both;"></div>
+      <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:390px; background:#fff; border-radius:24px 24px 0 0; max-height:60%; overflow:hidden; display:flex; flex-direction:column; z-index:101; animation:slideUp 300ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <div style="width:40px; height:4px; background:#E8E6F0; border-radius:9999px; margin:12px auto 0; flex-shrink:0;"></div>
+        <div style="padding:24px; text-align:center;">
+          <div style="display:flex; justify-content:center; margin-bottom:16px;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></div>
+          <div style="font-family:var(--font-display); font-size:22px; color:#1A1A2E; margin-bottom:8px;">Delete all your data?</div>
+          <div style="font-size:14px; color:#4A4A6A; line-height:1.6; margin-bottom:24px;">This permanently removes all your logs, cycle history, settings, and patterns. This cannot be undone.</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button onClick="{{ onConfirmDelete }}" style="background:#DC2626; color:#fff; height:52px; border-radius:14px; border:none; font-family:var(--font-body); font-size:15px; font-weight:600; cursor:pointer;">Yes, delete everything</button>
+            <button onClick="{{ onCloseDelete }}" style="color:#7A7A9A; font-size:14px; font-weight:500; height:44px; background:transparent; border:none; cursor:pointer; font-family:var(--font-body);">Cancel — keep my data</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showToast }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:16px; left:50%; transform:translateX(-50%); z-index:999; background:linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0); color:#fff; border-radius:9999px; padding:10px 20px; font-size:14px; font-weight:600; box-shadow:0 8px 24px rgba(155,111,160,0.35); display:flex; align-items:center; gap:8px; white-space:nowrap; animation:toastEnter 350ms cubic-bezier(0.34,1.56,0.64,1) both;">
+        <img src="https://img.icons8.com/3d-fluency/100/shield.png" width="18" height="18" alt="" style="filter:brightness(10);" />
+        {{ toastMsg }}
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  GRAD='linear-gradient(145deg, #7A4F80, #9B6FA0, #B88DC0)';
+  state = {
+    safeModeOn:true, iconChoice:'wellness', skipSensitive:true, partnerShare:false, biometric:false, analytics:false,
+    partnerSheet:false, partnerMessage:'', crisisSheet:false, deleteSheet:false, showToast:false, toastMsg:'', activeTab:'me',
+  };
+  componentWillUnmount(){ clearTimeout(this._t); }
+  triggerToast(msg){ this.setState({ toastMsg:msg, showToast:true }); clearTimeout(this._t); this._t=setTimeout(()=>this.setState({ showToast:false }), 3200); }
+  setTab(t){ if(this.props.onNavigate){ this.props.onNavigate(t); return; } this.setState({ activeTab:t }); }
+
+  toggle(on){
+    return {
+      track:{ width:44, height:24, borderRadius:12, position:'relative', cursor:'pointer', transition:'background 250ms', background: on?'#059669':'#E8E6F0', flexShrink:0 },
+      dot:{ position:'absolute', top:2, left:2, width:20, height:20, borderRadius:'50%', background:'#fff', boxShadow:'0 1px 4px rgba(0,0,0,0.15)', transition:'transform 250ms cubic-bezier(0.34,1.56,0.64,1)', transform: on?'translateX(20px)':'translateX(0)' },
+    };
+  }
+  iconWrap(bg){ return { width:40, height:40, background:bg, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }; }
+
+  renderVals(){
+    const S=this.state, P='#9B6FA0';
+    const safe=this.toggle(S.safeModeOn), skip=this.toggle(S.skipSensitive), partner=this.toggle(S.partnerShare), bio=this.toggle(S.biometric), an=this.toggle(S.analytics);
+    const chip=(on)=> on
+      ? { height:36, padding:'0 16px', borderRadius:9999, fontFamily:'var(--font-body)', fontSize:13, fontWeight:600, cursor:'pointer', border:'none', transition:'all 200ms', background:'#059669', color:'#fff', boxShadow:'0 3px 10px rgba(5,150,105,0.30)' }
+      : { height:36, padding:'0 16px', borderRadius:9999, fontFamily:'var(--font-body)', fontSize:13, fontWeight:600, cursor:'pointer', border:'none', transition:'all 200ms', background:'rgba(5,150,105,0.10)', color:'#059669' };
+
+    const shareOk = S.partnerMessage.trim().length>=10;
+    const shareBtnStyle = shareOk
+      ? { flex:2, height:48, borderRadius:12, background:this.GRAD, color:'#fff', border:'none', fontFamily:'var(--font-body)', fontSize:14, fontWeight:600, cursor:'pointer' }
+      : { flex:2, height:48, borderRadius:12, background:'#E8E6F0', color:'#A8A8C0', border:'none', fontFamily:'var(--font-body)', fontSize:14, fontWeight:600, cursor:'not-allowed' };
+
+    const at=S.activeTab; const col=(id)=> at===id?P:'#A8A8C0';
+
+    return {
+      safeOn:S.safeModeOn, safeOff:!S.safeModeOn,
+      displayName: S.iconChoice==='wellness'?'Wellness':'My Journal',
+      onChooseWellness:()=>this.setState({iconChoice:'wellness'}), onChooseJournal:()=>this.setState({iconChoice:'journal'}),
+      wellnessChipStyle:chip(S.iconChoice==='wellness'), journalChipStyle:chip(S.iconChoice==='journal'),
+      onSafeOn:()=>this.setState({safeModeOn:true}),
+
+      safeRowIconBg:this.iconWrap(S.safeModeOn?'#D1FAE5':'#F5EEF7'), safeRowIconColor:S.safeModeOn?'#059669':P,
+      safeSub: S.safeModeOn ? "App shows as 'Wellness' · All cycle terms hidden" : 'Tap to hide app identity on your device',
+      safeTrack:safe.track, safeDot:safe.dot, onToggleSafe:()=>this.setState(s=>({safeModeOn:!s.safeModeOn})),
+
+      skipIconBg:this.iconWrap(S.skipSensitive?'#F5EEF7':'#F1F5F9'), skipIconColor:S.skipSensitive?P:'#7A7A9A',
+      skipTrack:skip.track, skipDot:skip.dot, skipOff:!S.skipSensitive, onToggleSkip:()=>this.setState(s=>({skipSensitive:!s.skipSensitive})),
+
+      analyticsIconBg:this.iconWrap(S.analytics?'#D1FAE5':'#F1F5F9'), analyticsIconColor:S.analytics?'#059669':'#7A7A9A',
+      analyticsTrack:an.track, analyticsDot:an.dot, onToggleAnalytics:()=>this.setState(s=>({analytics:!s.analytics})),
+
+      partnerIconBg:this.iconWrap(S.partnerShare?'#F5EEF7':'#F1F5F9'), partnerIconColor:S.partnerShare?P:'#7A7A9A',
+      partnerTrack:partner.track, partnerDot:partner.dot, partnerOn:S.partnerShare, onTogglePartner:()=>this.setState(s=>({partnerShare:!s.partnerShare})),
+      onOpenPartner:()=>this.setState({partnerSheet:true}),
+
+      bioIconBg:this.iconWrap(S.biometric?'#D1FAE5':'#F1F5F9'), bioIconColor:S.biometric?'#059669':'#7A7A9A',
+      bioTrack:bio.track, bioDot:bio.dot, onToggleBio:()=>this.setState(s=>({biometric:!s.biometric})),
+
+      onBack:()=>this.setTab('me'),
+      onExport:()=>this.triggerToast('Export ready 📄 Check your downloads folder.'),
+      onOpenDelete:()=>this.setState({deleteSheet:true}),
+      onOpenCrisis:()=>this.setState({crisisSheet:true}),
+
+      partnerSheet:S.partnerSheet, onClosePartner:()=>this.setState({partnerSheet:false}),
+      partnerMessage:S.partnerMessage, partnerLen:S.partnerMessage.length, onPartnerInput:(e)=>this.setState({partnerMessage:e.target.value}),
+      onPrompt1:()=>this.setState({partnerMessage:'How my cycle feels right now: '}), onPrompt2:()=>this.setState({partnerMessage:'What I need from you this week: '}), onPrompt3:()=>this.setState({partnerMessage:'What helps me most today: '}),
+      onCopyPartner:()=>{ try{navigator.clipboard.writeText(S.partnerMessage);}catch(e){} this.triggerToast('Copied to clipboard 📋'); },
+      shareDisabled:!shareOk, shareBtnStyle,
+      onSharePartner:()=>{ if(!shareOk) return; this.setState({partnerSheet:false}); this.triggerToast('Message ready to share 💬'); },
+
+      crisisSheet:S.crisisSheet, onCloseCrisis:()=>this.setState({crisisSheet:false}),
+      onCrisisJournal:()=>{ this.setState({crisisSheet:false}); this.setTab('log'); },
+
+      deleteSheet:S.deleteSheet, onCloseDelete:()=>this.setState({deleteSheet:false}),
+      onConfirmDelete:()=>{ this.setState({deleteSheet:false}); this.triggerToast('All data deleted.'); },
+
+      showToast:S.showToast, toastMsg:S.toastMsg,
+      onHome:()=>this.setTab('home'), onLogTab:()=>this.setTab('log'), onCopeTab:()=>this.setTab('cope'), onCalTab:()=>this.setTab('calendar'), onMeTab:()=>this.setTab('me'),
+      homeColor:col('home'), logColor:col('log'), calColor:col('calendar'), meColor:col('me'),
+      homeActive:at==='home', logActive:at==='log', calActive:at==='calendar', meActive:at==='me',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shreyash Patekar — Product Designer</title>
+<meta name="description" content="Enterprise SaaS product designer. Seven shipped case studies across HR, sales and learning platforms — with live, clickable prototypes.">
+<meta property="og:title" content="Shreyash Patekar — Product Designer">
+<meta property="og:description" content="Enterprise SaaS product designer. Seven shipped case studies across HR, sales and learning platforms — with live, clickable prototypes.">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="frame-fit.js"></script>
+<style>
+  body { margin:0; background:#1B3427; color:#14171A; font-family:'Inter',sans-serif; font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:inherit; text-decoration:none; }
+  [data-nowrap] { white-space:nowrap; }
+  a:hover { color:#B0461A; }
+  :focus-visible { outline:2.5px solid #E8A33D; outline-offset:3px; }
+
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; animation:none !important; } }
+  @media (max-width:1080px){
+    [data-g="hero"]{ grid-template-columns:1fr !important; }
+    [data-g="two"]{ grid-template-columns:1fr !important; }
+    [data-g="four"]{ grid-template-columns:1fr 1fr !important; }
+    [data-g="how"]{ grid-template-columns:1fr 1fr !important; }
+    [data-g="foot"]{ grid-template-columns:1fr 1fr !important; }
+  }
+  @media (max-width:1180px){ [data-clip], [data-artifact="1"]{ display:none !important; } }
+  @media (max-width:680px){
+    [data-g="four"], [data-g="how"], [data-g="foot"]{ grid-template-columns:1fr !important; }
+    [data-sm-hide]{ display:none !important; }
+    [data-paper]{ padding:30px 22px !important; }
+  }
+
+  /* ── MOBILE / TABLET ─────────────────────────────────────────── */
+  html, body { overflow-x:hidden; }
+  img, svg { max-width:100%; }
+  [data-frame] iframe { max-width:none !important; }
+  @media (max-width: 900px) {
+    section, header, footer { padding-left:26px !important; padding-right:26px !important; }
+  }
+  @media (max-width: 700px) {
+    body { font-size:15.5px; }
+    section, header, footer { padding-left:20px !important; padding-right:20px !important; }
+    section, header { border-radius:2px !important; }
+    [data-g] { grid-template-columns:1fr !important; gap:20px !important; }
+    /* Inline-styled label/content grids (timeline, education, sector rows) stack too.
+       React serializes the style attribute WITH a space after the colon — match both. */
+    [style*="grid-template-columns: 100px"], [style*="grid-template-columns:100px"],
+    [style*="grid-template-columns: 110px"], [style*="grid-template-columns:110px"],
+    [style*="grid-template-columns: 120px"], [style*="grid-template-columns:120px"],
+    [style*="grid-template-columns: 130px"], [style*="grid-template-columns:130px"],
+    [style*="grid-template-columns: 140px"], [style*="grid-template-columns:140px"],
+    [style*="grid-template-columns: 150px"], [style*="grid-template-columns:150px"],
+    [style*="grid-template-columns: 160px"], [style*="grid-template-columns:160px"],
+    [style*="grid-template-columns: 170px"], [style*="grid-template-columns:170px"],
+    [style*="grid-template-columns: 180px"], [style*="grid-template-columns:180px"],
+    [style*="grid-template-columns: 200px"], [style*="grid-template-columns:200px"],
+    [style*="grid-template-columns: 220px"], [style*="grid-template-columns:220px"],
+    [style*="grid-template-columns: 1.5fr"], [style*="grid-template-columns:1.5fr"],
+    [style*="grid-template-columns: repeat("], [style*="grid-template-columns:repeat("] {
+      grid-template-columns:1fr !important; gap:8px !important;
+    }
+    [data-g="phones"] { display:grid !important; grid-template-columns:1fr !important; justify-content:start !important; overflow-x:visible !important; }
+    [data-g="phones"] > div { min-width:0 !important; margin:0 auto !important; }
+    [data-artifact], [data-corner], [data-clip], [data-artifact="keep"] { display:none !important; }
+    [data-frame] { overflow:visible !important; height:auto !important; }
+    h1 { letter-spacing:-0.025em !important; }
+    footer > div { flex-direction:column !important; gap:12px !important; }
+  }
+  @media (max-width: 460px) {
+    section, header, footer { padding-left:16px !important; padding-right:16px !important; }
+  }
+
+</style>
+<script type="module" src="./motion-desk.js"></script>
+</helmet>
+<div style="position:relative; background-color:#1B3427; min-height:100vh; overflow:hidden;">
+  
+  <sc-if value="{{ showBoardGrid }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size:52px 52px; pointer-events:none;"></div>
+  </sc-if>
+  <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1.4px); background-size:11px 11px; pointer-events:none; opacity:0.55;"></div>
+  <div id="top" style="position:relative; max-width:1300px; margin:0 auto; padding:0 40px 0;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; padding:26px 0 0; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(245,242,232,0.72);">
+      <span>Shreyash Patekar — portfolio archive / 2026</span>
+      <span style="display:flex; align-items:center; gap:16px;">
+        <span data-sm-hide="1">Mumbai, IN</span>
+        <span>{{ clockText }}</span>
+      </span>
+    </div>
+    <nav style="position:sticky; top:0; z-index:60; display:flex; gap:5px; margin-top:22px; padding-left:30px; overflow-x:auto;">
+      <a href="#top" style="background:#F5F2E8; color:#14171A; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:13px 19px 15px; border-radius:5px 5px 0 0; box-shadow:0 -2px 6px rgba(0,0,0,0.22); white-space:nowrap; display:flex; align-items:center; min-height:44px;">01 Index</a>
+      <a href="#work" style="background:#2A4E3B; color:rgba(245,242,232,0.8); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 19px 13px; border-radius:5px 5px 0 0; white-space:nowrap; display:flex; align-items:center; min-height:42px; transition:transform 140ms cubic-bezier(0.22,0.61,0.36,1), background 140ms linear, color 140ms linear;" style-hover="transform:translateY(-3px); background:#3A6851; color:#F5F2E8;">02 Work</a>
+      <a href="#method" style="background:#2A4E3B; color:rgba(245,242,232,0.8); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 19px 13px; border-radius:5px 5px 0 0; white-space:nowrap; display:flex; align-items:center; min-height:42px; transition:transform 140ms cubic-bezier(0.22,0.61,0.36,1), background 140ms linear, color 140ms linear;" style-hover="transform:translateY(-3px); background:#3A6851; color:#F5F2E8;">03 Method</a>
+      <a href="Portfolio About.dc.html" style="background:#2A4E3B; color:rgba(245,242,232,0.8); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 19px 13px; border-radius:5px 5px 0 0; white-space:nowrap; display:flex; align-items:center; min-height:42px; transition:transform 140ms cubic-bezier(0.22,0.61,0.36,1), background 140ms linear, color 140ms linear;" style-hover="transform:translateY(-3px); background:#3A6851; color:#F5F2E8;">04 About</a>
+      <a href="#experience" style="background:#2A4E3B; color:rgba(245,242,232,0.8); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 19px 13px; border-radius:5px 5px 0 0; white-space:nowrap; display:flex; align-items:center; min-height:42px; transition:transform 140ms cubic-bezier(0.22,0.61,0.36,1), background 140ms linear, color 140ms linear;" style-hover="transform:translateY(-3px); background:#3A6851; color:#F5F2E8;">05 Experience</a>
+      <a href="#contact" style="background:#2A4E3B; color:rgba(245,242,232,0.8); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 19px 13px; border-radius:5px 5px 0 0; white-space:nowrap; display:flex; align-items:center; min-height:42px; transition:transform 140ms cubic-bezier(0.22,0.61,0.36,1), background 140ms linear, color 140ms linear;" style-hover="transform:translateY(-3px); background:#3A6851; color:#F5F2E8;">06 Contact</a>
+    </nav>
+    <header data-paper="1" style="position:relative; margin-top:62px; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:7px 9px 0 -2px #EFEADA, 8px 10px 1px -2px rgba(20,23,26,0.16), 13px 18px 0 -5px #E5DFCB, 14px 19px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.18), 0 20px 50px -20px rgba(0,0,0,0.55); padding:52px 46px 44px;">
+    <div aria-hidden="true" data-artifact="1" style="position:absolute; bottom:-98px; right:66px; width:182px; height:206px; z-index:3; transform:rotate(-6deg); filter:drop-shadow(3px 9px 9px rgba(20,23,26,0.32)); pointer-events:none;">
+      <div style="position:absolute; top:11px; left:11px; width:74px; height:74px; border-radius:50%; backdrop-filter:brightness(1.07) saturate(1.05); -webkit-backdrop-filter:brightness(1.07) saturate(1.05); background:radial-gradient(circle at 36% 26%, rgba(255,255,255,0.5), rgba(255,255,255,0.1) 52%, rgba(255,255,255,0.24)); box-shadow:inset 0 1px 4px rgba(255,255,255,0.75), inset 0 -4px 9px rgba(90,96,102,0.14);"></div>
+      <svg viewBox="0 0 236 268" width="182" height="206" fill="none" style="position:absolute; inset:0;">
+        <path d="M105.6 130.4 L172.8 207.4 L213.1 244.9 Q235.7 247.7 232.9 225.1 L195.4 184.8 L118.4 117.6 Z" fill="#8A5F2E"/>
+        <path d="M105.6 130.4 L172.8 207.4 L213.1 244.9 Q235.7 247.7 232.9 225.1 L195.4 184.8 L118.4 117.6 Z" fill="url(#wood)"/>
+        <g stroke="rgba(58,34,12,0.24)" stroke-width="1" stroke-linecap="round">
+          <path d="M112 129 L218 235"/><path d="M117 124 L223 230"/><path d="M108 134 L212 238"/>
+        </g>
+        <path d="M96 108 L112 124" stroke="#C89A34" stroke-width="18" stroke-linecap="butt"/>
+        <path d="M96 108 L112 124" stroke="url(#brass)" stroke-width="18" stroke-linecap="butt"/>
+        <path d="M100 112 L109 121" stroke="#C89A34" stroke-width="23" stroke-linecap="butt"/>
+        <path d="M100 112 L109 121" stroke="url(#brass)" stroke-width="23" stroke-linecap="butt"/>
+        <path d="M99.5 111.5 L108.5 120.5" stroke="rgba(90,64,16,0.28)" stroke-width="23" stroke-linecap="butt" stroke-dasharray="1 13"/>
+        <circle cx="62" cy="62" r="52" stroke="#C69A31" stroke-width="7"/>
+        <circle cx="62" cy="62" r="52" stroke="url(#brass)" stroke-width="7"/>
+        <circle cx="62" cy="62" r="55.6" stroke="rgba(90,64,16,0.3)" stroke-width="1"/>
+        <circle cx="62" cy="62" r="48.4" stroke="rgba(90,64,16,0.35)" stroke-width="1"/>
+        <path d="M26 34a48 48 0 0 1 30-18" stroke="rgba(255,255,255,0.92)" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M20 74a48 48 0 0 0 12 22" stroke="rgba(255,255,255,0.42)" stroke-width="3.2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="brass" x1="14" y1="12" x2="118" y2="124" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F7E6A8"/><stop offset="0.3" stop-color="#D6A83A"/><stop offset="0.56" stop-color="#9A7020"/><stop offset="0.78" stop-color="#EBD188"/><stop offset="1" stop-color="#A87C24"/>
+          </linearGradient>
+          <linearGradient id="wood" x1="108" y1="126" x2="226" y2="244" gradientUnits="userSpaceOnUse">
+            <stop stop-color="rgba(255,235,200,0.34)"/><stop offset="0.42" stop-color="rgba(255,255,255,0)"/><stop offset="1" stop-color="rgba(40,22,8,0.42)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    
+      <span aria-hidden="true" data-artifact="1" style="position:absolute; left:-8px; top:158px; width:16px; height:46px; border:2.5px solid #B9BDC2; border-radius:9px; box-shadow:1px 2px 3px rgba(20,23,26,0.32); transform:rotate(-4deg); pointer-events:none;"><span style="position:absolute; left:2px; right:2px; top:4px; bottom:9px; border:1.5px solid #D9DCE0; border-radius:6px;"></span></span><span aria-hidden="true" data-artifact="1" style="position:absolute; left:22px; bottom:6px; width:44px; height:44px; border-radius:50%; border:3px solid rgba(120,84,48,0.14); box-shadow:inset 0 0 0 2px rgba(120,84,48,0.05); pointer-events:none;"></span>
+      <div aria-hidden="true" data-artifact="keep" style="position:absolute; top:-21px; left:56px; z-index:1; transform:rotate(-1.4deg); transform-origin:bottom center; background:#D6C496; color:#3C4148; font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; white-space:nowrap; padding:5px 13px 8px; border-radius:3px 3px 0 0; box-shadow:0 -1px 2px rgba(20,23,26,0.14); transition:box-shadow 150ms ease;" style-hover="box-shadow:0 -3px 6px rgba(20,23,26,0.2);">Portfolio · UX / 2026</div>
+      <div aria-hidden="true" data-artifact="1" style="position:absolute; left:14px; top:112px; display:flex; flex-direction:column; gap:40px; pointer-events:none;"><span style="display:block; width:11px; height:11px; border-radius:50%; background:#E4DFCD; box-shadow:inset 0 1.5px 2px rgba(20,23,26,0.28), 0 1px 0 rgba(255,255,255,0.5);"></span><span style="display:block; width:11px; height:11px; border-radius:50%; background:#E4DFCD; box-shadow:inset 0 1.5px 2px rgba(20,23,26,0.28), 0 1px 0 rgba(255,255,255,0.5);"></span></div>
+      <svg data-clip="1" width="30" height="80" viewBox="0 0 30 80" style="position:absolute; top:-40px; right:52px; z-index:2; filter:drop-shadow(1px 3px 3px rgba(0,0,0,0.32)); transform:rotate(-4deg);"><path d="M13 58V20a5 5 0 0110 0v40a9 9 0 01-18 0V15a10 10 0 0120 0v38" fill="none" stroke="#9BA1A9" stroke-width="4.6" stroke-linecap="round"></path><path d="M13 58V20a5 5 0 0110 0v40a9 9 0 01-18 0V15a10 10 0 0120 0v38" fill="none" stroke="#D8DCE1" stroke-width="2.6" stroke-linecap="round"></path><path d="M13 58V20a5 5 0 0110 0v40a9 9 0 01-18 0V15a10 10 0 0120 0v38" fill="none" stroke="#F2F4F6" stroke-width="0.9" stroke-linecap="round"></path></svg>
+      <div style="position:absolute; top:22px; right:28px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.11em; color:#5E625B; text-transform:uppercase;">Sheet 01 / index</div>
+      <div data-g="hero" style="display:grid; grid-template-columns:1.6fr 0.9fr; gap:50px; align-items:start;">
+        <div>
+          <div style="display:flex; align-items:center; gap:11px; flex-wrap:wrap; margin-bottom:16px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#B0461A;">Mumbai, India</span>
+            <sc-if value="{{ openToWork }}" hint-placeholder-val="{{ true }}">
+              <span style="display:inline-flex; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:5px 11px; border-radius:3px; border:1.5px dashed currentColor; transform:rotate(-2deg); color:#2C5A45; background:#E7EFE9; white-space:nowrap;">Open to full-time roles</span>
+            </sc-if>
+          </div>
+          <h1 style="font-family:'Archivo',sans-serif; font-size:clamp(46px,7.2vw,96px); line-height:0.86; font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; margin:0; color:#14171A;">Shreyash<br>Patekar</h1>
+      <div aria-hidden="true" style="margin:-12px 0 22px; max-width:430px; pointer-events:none;"><svg viewBox="0 0 430 14" width="100%" height="14" fill="none" preserveAspectRatio="none"><path d="M4 8.6C70 3.8 150 3 232 4.9c62 1.4 118 3.6 194 2.3" stroke="#B0461A" stroke-width="3.2" stroke-linecap="round" opacity="0.88"/><path d="M15 12.4c80-3.6 168-4.5 250-3.2 48 .7 96 1.7 150 1.1" stroke="#B0461A" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/></svg></div>
+          <div style="font-family:'Archivo',sans-serif; font-size:clamp(17px,2.1vw,23px); font-weight:700; letter-spacing:-0.005em; margin:22px 0 0; color:#14171A;">Product / UX Designer — enterprise SaaS</div>
+          <p style="font-family:'Newsreader',serif; font-size:clamp(17px,1.9vw,20px); line-height:1.5; color:#3C4148; margin:12px 0 0; max-width:640px;">Six months at <strong style="font-weight:400; color:#14171A; border-bottom:1.5px solid #B0461A;">T&amp;M AI and IT Solutions</strong> shipping six enterprise portals as the only designer — HR-tech, EdTech and sales intelligence. Plus one product built from thirty days of my own primary research, now under peer review.</p>
+          <div style="display:flex; gap:10px; margin-top:28px; flex-wrap:wrap; align-items:center;">
+            <a href="#work" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:#14171A; color:#F5F2E8; padding:15px 26px; border-radius:2px; display:block; transition:background 150ms ease, transform 150ms ease;" style-hover="background:#B0461A; transform:translateY(-2px);" style-active="transform:translateY(1px);">See the work ↓</a>
+            <a href="Portfolio About.dc.html" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border:1.5px solid #14171A; color:#14171A; padding:14px 24px; border-radius:2px; display:block; transition:background 150ms ease, color 150ms ease;" style-hover="background:#14171A; color:#F5F2E8;" style-active="transform:translateY(1px);" data-nowrap="1">About me</a>
+            <a href="uploads/Shreyash_Patekar_Resume_2026.pdf" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border:1.5px solid #14171A; color:#14171A; padding:14px 24px; border-radius:2px; display:block; transition:background 150ms ease, color 150ms ease;" style-hover="background:#14171A; color:#F5F2E8;" style-active="transform:translateY(1px);">Resume</a>
+            <a href="mailto:shreyashpatekar10@gmail.com" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#5E625B; padding:14px 6px; display:block;" style-hover="color:#B0461A;">shreyashpatekar10@gmail.com</a>
+          </div>
+        </div>
+        <div style="border-left:1.5px solid #DED8C6; padding-left:28px; display:flex; flex-direction:column; gap:20px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px 20px;">
+            <div><div style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:900; line-height:0.85; letter-spacing:-0.04em; color:#B0461A;">6</div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#5E625B; margin-top:7px; line-height:1.4;">Portals shipped</div></div>
+            <div><div style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:900; line-height:0.85; letter-spacing:-0.04em; color:#B0461A;">6</div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#5E625B; margin-top:7px; line-height:1.4;">Months, one<br>designer</div></div>
+            <div><div style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:900; line-height:0.85; letter-spacing:-0.04em; color:#6B5CA5;">22</div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#5E625B; margin-top:7px; line-height:1.4;">Check-ins,<br>10 participants</div></div>
+            <div><div style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:900; line-height:0.85; letter-spacing:-0.04em; color:#6B5CA5;">1</div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#5E625B; margin-top:7px; line-height:1.4;">Research paper<br>under review</div></div>
+          </div>
+          <div style="font-family:'Caveat',cursive; font-size:21px; line-height:1.2; color:#B0461A; transform:rotate(-1.4deg); max-width:220px; padding-top:4px;">Shipped on a director's deadline — not a design-school one.</div>
+          <div style="display:flex; flex-direction:column; gap:12px; padding-top:16px; border-top:1px solid #DED8C6;">
+            <div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.11em; text-transform:uppercase; color:#5E625B;">Education</div><div style="font-size:14px; font-weight:600; margin-top:2px;">MCA, 2026 — 7.61 CGPI, K. J. Somaiya Institute of Management</div></div>
+            <div><div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.11em; text-transform:uppercase; color:#5E625B;">Feb – Jul 2026</div><div style="font-size:14px; font-weight:600; margin-top:2px;">UI/UX Design Intern — T&amp;M AI &amp; IT Solutions</div></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="work" data-screen-label="02 Work" style="margin-top:76px; scroll-margin-top:64px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:26px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,242,232,0.74);">Section 02 — selected work</div>
+          <h2 style="font-family:'Archivo',sans-serif; font-size:clamp(30px,3.6vw,46px); font-weight:800; letter-spacing:-0.035em; text-transform:uppercase; color:#F5F2E8; line-height:1; margin:8px 0 0;">Three that matter</h2>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;">
+          <p style="font-size:13.5px; color:rgba(245,242,232,0.76); max-width:340px; margin:0;">Each case names a decision that was argued about, and what it cost.</p>
+          <span data-deco="1" style="display:inline-block; background:#B0461A; color:#F5F2E8; font-family:'Archivo',sans-serif; font-size:14px; font-weight:900; letter-spacing:0.01em; text-transform:uppercase; line-height:1.15; padding:11px 16px 12px; transform:rotate(-2.6deg); box-shadow:3px 4px 0 rgba(0,0,0,0.28); white-space:nowrap;">Real product UI.<br>No mockup gloss.</span>
+        </div>
+      </div>
+      <a href="Case - SalesVision.dc.html" style="position:relative; display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.16), 0 18px 44px -20px rgba(0,0,0,0.55); padding:22px 22px 26px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+        <div style="position:absolute; top:-12px; left:30px; width:104px; height:28px; background:rgba(214,196,150,0.72); transform:rotate(-2.4deg); box-shadow:0 1px 2px rgba(0,0,0,0.16);"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:16px; flex-wrap:wrap;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B;">Case 01 — sales intelligence · director portal</span>
+          <span style="display:inline-flex; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:3px; border:1.5px dashed currentColor; transform:rotate(-1.6deg); color:#2C5A45; background:#E7EFE9;">Shipped</span>
+        </div>
+        <div data-g="two" style="display:grid; grid-template-columns:1.25fr 1fr; gap:26px; align-items:center;">
+          <div style="background:#F4F5F7; height:285px; overflow:hidden; border-radius:2px; display:flex; border:1px solid #E2E4E8;">
+            <div style="width:40px; background:#FFFFFF; border-right:1px solid #EEEEEE; flex-shrink:0; padding:10px 0; display:flex; flex-direction:column; align-items:center; gap:7px;">
+              <span style="width:18px; height:18px; border-radius:5px; background:linear-gradient(135deg,#F5365C,#17181C); display:block;"></span>
+              <span style="width:28px; height:24px; border-radius:8px; background:#17181C; display:flex; align-items:center; justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg></span>
+              <span style="width:28px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#67748E" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+              <span style="width:28px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#67748E" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"></path></svg></span>
+              <span style="width:28px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#67748E" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>
+            </div>
+            <div style="flex:1; min-width:0; padding:11px 12px; display:flex; flex-direction:column;">
+              <div style="height:18px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                <span style="font-family:'Poppins',sans-serif; font-size:10.5px; font-weight:600; color:#1A1A1A; white-space:nowrap;">Dashboard</span>
+                <span style="display:flex; align-items:center; gap:5px;">
+                  <span style="display:flex; background:#F1F1F3; border-radius:100px; padding:2px; gap:2px;">
+                    <span style="font-family:'Inter',sans-serif; font-size:7px; font-weight:600; color:#8392AB; padding:2px 6px;">Today</span>
+                    <span style="font-family:'Inter',sans-serif; font-size:7px; font-weight:600; color:#1A1A1A; background:#FFFFFF; border-radius:100px; padding:2px 6px; box-shadow:0 1px 2px rgba(0,0,0,0.08);">This Week</span>
+                  </span>
+                  <span style="font-family:'Inter',sans-serif; font-size:7px; font-weight:600; color:#FFFFFF; background:#17181C; border-radius:5px; padding:3px 8px;">Export</span>
+                </span>
+              </div>
+              <div style="height:8px; flex-shrink:0;"></div>
+              <div style="height:60px; flex-shrink:0; display:grid; grid-template-columns:repeat(4,1fr); gap:7px;">
+                <div style="background:#FFFFFF; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:8px 9px; display:flex; justify-content:space-between; align-items:flex-start; gap:4px; overflow:hidden;">
+                  <div style="min-width:0;"><div style="font-family:'Inter',sans-serif; font-size:8px; font-weight:500; color:#67748E; white-space:nowrap;">Calls Made</div><div style="font-family:'Poppins',sans-serif; font-size:18px; font-weight:700; color:#1A1A1A; line-height:1.1; letter-spacing:-0.02em;">4,820</div><div style="font-family:'Inter',sans-serif; font-size:7px; white-space:nowrap; margin-top:1px;"><span style="font-weight:700; color:#4CAF50;">+12.4%</span> <span style="color:#8392AB;">than last week</span></div></div>
+                  <span style="width:21px; height:21px; border-radius:6px; background:#17181C; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"></path></svg></span>
+                </div>
+                <div style="background:#FFFFFF; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:8px 9px; display:flex; justify-content:space-between; align-items:flex-start; gap:4px; overflow:hidden;">
+                  <div style="min-width:0;"><div style="font-family:'Inter',sans-serif; font-size:8px; font-weight:500; color:#67748E; white-space:nowrap;">Total Mappings</div><div style="font-family:'Poppins',sans-serif; font-size:18px; font-weight:700; color:#1A1A1A; line-height:1.1; letter-spacing:-0.02em;">1,360</div><div style="font-family:'Inter',sans-serif; font-size:7px; white-space:nowrap; margin-top:1px;"><span style="font-weight:700; color:#4CAF50;">+6.1%</span> <span style="color:#8392AB;">than last week</span></div></div>
+                  <span style="width:21px; height:21px; border-radius:6px; background:#17181C; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+                </div>
+                <div style="background:#FFFFFF; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:8px 9px; display:flex; justify-content:space-between; align-items:flex-start; gap:4px; overflow:hidden;">
+                  <div style="min-width:0;"><div style="font-family:'Inter',sans-serif; font-size:8px; font-weight:500; color:#67748E; white-space:nowrap;">Hot Leads</div><div style="font-family:'Poppins',sans-serif; font-size:18px; font-weight:700; color:#1A1A1A; line-height:1.1; letter-spacing:-0.02em;">214</div><div style="font-family:'Inter',sans-serif; font-size:7px; white-space:nowrap; margin-top:1px;"><span style="font-weight:700; color:#F5365C;">-3.2%</span> <span style="color:#8392AB;">than last week</span></div></div>
+                  <span style="width:21px; height:21px; border-radius:6px; background:#17181C; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.4-.5-2-1-3-1.1-2-.5-4.5 2.5-6-.2 2 .7 3.2 2 4.5 1.4 1.4 2.5 2.8 2.5 5a6 6 0 11-12 0c0-1.3.5-2.5 1-3a2.5 2.5 0 002.5 5z"></path></svg></span>
+                </div>
+                <div style="background:#FFFFFF; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:8px 9px; display:flex; justify-content:space-between; align-items:flex-start; gap:4px; overflow:hidden;">
+                  <div style="min-width:0;"><div style="font-family:'Inter',sans-serif; font-size:8px; font-weight:500; color:#67748E; white-space:nowrap;">Connected Calls</div><div style="font-family:'Poppins',sans-serif; font-size:18px; font-weight:700; color:#1A1A1A; line-height:1.1; letter-spacing:-0.02em;">2,115</div><div style="font-family:'Inter',sans-serif; font-size:7px; white-space:nowrap; margin-top:1px;"><span style="font-weight:700; color:#8392AB;">43.9%</span> <span style="color:#8392AB;">connect rate</span></div></div>
+                  <span style="width:21px; height:21px; border-radius:6px; background:#17181C; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+                </div>
+              </div>
+              <div style="height:9px; flex-shrink:0;"></div>
+              <div style="height:162px; flex-shrink:0; background:#FFFFFF; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:11px 12px; overflow:hidden;">
+                <div style="height:16px; font-family:'Poppins',sans-serif; font-size:9.5px; font-weight:600; color:#1A1A1A;">Mapping by Industry</div>
+                <div style="height:12px; font-family:'Inter',sans-serif; font-size:7.5px; color:#8392AB;">Total mapped contacts</div>
+                <div style="height:106px; margin-top:5px; display:flex; align-items:stretch; gap:6px;">
+                  <div style="width:15px; flex-shrink:0; display:flex; flex-direction:column; justify-content:space-between; padding-bottom:12px; font-family:'Inter',sans-serif; font-size:6px; color:#ADB5BD; text-align:right;"><span>500</span><span>250</span><span>0</span></div>
+                  <div style="flex:1; min-width:0; display:flex; align-items:flex-end; justify-content:space-between; gap:7px; background-image:linear-gradient(#F0F0F0 1px, transparent 1px); background-size:100% 42px; background-position:0 -1px;">
+                    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:2px;"><div style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A1A;">412</div><span style="width:60%; height:69px; background:#4CAF50; border-radius:2px 2px 0 0; display:block;"></span><div style="font-family:'Inter',sans-serif; font-size:6.5px; color:#8392AB; white-space:nowrap;">BFSI</div></div>
+                    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:2px;"><div style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A1A;">268</div><span style="width:60%; height:45px; background:#4CAF50; border-radius:2px 2px 0 0; display:block;"></span><div style="font-family:'Inter',sans-serif; font-size:6.5px; color:#8392AB; white-space:nowrap;">Health</div></div>
+                    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:2px;"><div style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A1A;">205</div><span style="width:60%; height:34px; background:#4CAF50; border-radius:2px 2px 0 0; display:block;"></span><div style="font-family:'Inter',sans-serif; font-size:6.5px; color:#8392AB; white-space:nowrap;">Mfg</div></div>
+                    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:2px;"><div style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A1A;">88</div><span style="width:60%; height:15px; background:#4CAF50; border-radius:2px 2px 0 0; display:block;"></span><div style="font-family:'Inter',sans-serif; font-size:6.5px; color:#8392AB; white-space:nowrap;">Retail</div></div>
+                    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:2px;"><div style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A1A;">387</div><span style="width:60%; height:65px; background:#4CAF50; border-radius:2px 2px 0 0; display:block;"></span><div style="font-family:'Inter',sans-serif; font-size:6.5px; color:#8392AB; white-space:nowrap;">IT/Tech</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:'Archivo',sans-serif; font-size:clamp(26px,3vw,36px); font-weight:800; letter-spacing:-0.03em; text-transform:uppercase; line-height:0.98; margin:0;">Reconciling five conflicting specs into one director dashboard</h3>
+            <p style="margin:14px 0 0; color:#3C4148; font-size:15.5px;">A PRD, a UI spec and a functional spec each described a different product. I built a decision table that resolved every conflict in one page — then threw away my own indigo palette when the director said it read as a startup, not a boardroom.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:16px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">Sole designer</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">10 screens</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">Design system v1.1</span>
+            </div>
+            <div style="margin-top:20px; padding-top:14px; border-top:1px solid #DED8C6; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read the case →</div>
+          </div>
+        </div>
+      </a>
+      <div data-g="two" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px;">
+        <a href="Case - NurtureSync.dc.html" style="position:relative; display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.16), 0 16px 40px -20px rgba(0,0,0,0.55); padding:20px 20px 24px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B;">Case 02 — health · primary research</span>
+            <span style="display:inline-flex; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:3px; border:1.5px dashed currentColor; transform:rotate(1.5deg); color:#6B5CA5; background:#EEEBF6;">Peer review</span>
+          </div>
+          <div style="background:linear-gradient(158deg,#6E4574,#9B6FA0); height:230px; padding:16px; display:flex; gap:14px; overflow:hidden; border-radius:2px;">
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:9px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.12em; color:rgba(255,255,255,0.7); text-transform:uppercase;">30-day study</div>
+              <div style="background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.2); border-radius:7px; padding:8px 10px;"><div style="font-family:'Archivo',sans-serif; font-size:24px; font-weight:800; color:#FFFFFF; line-height:1;">68%</div><div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.72); letter-spacing:0.07em; margin-top:3px;">ENERGY DECLINE AT TROUGH</div></div>
+              <div style="background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.2); border-radius:7px; padding:8px 10px;"><div style="font-family:'Archivo',sans-serif; font-size:24px; font-weight:800; color:#FFFFFF; line-height:1;">83%</div><div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.72); letter-spacing:0.07em; margin-top:3px;">DROP IN CHECK-IN RATE</div></div>
+              <div style="background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.2); border-radius:7px; padding:8px 10px;"><div style="font-family:'Archivo',sans-serif; font-size:24px; font-weight:800; color:#FFFFFF; line-height:1;">80%</div><div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.72); letter-spacing:0.07em; margin-top:3px;">SKIPPED LIBIDO QUESTIONS</div></div>
+            </div>
+            <div style="width:126px; flex-shrink:0; background:#FAFAFA; border-radius:18px 18px 0 0; border:5px solid #52304F; border-bottom:none; padding:0 0 0; display:flex; flex-direction:column; overflow:hidden;">
+              <div style="flex-shrink:0; background:#FFFFFF; border-bottom:1px solid #E8E6F0; padding:5px 8px; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Inter',sans-serif; font-size:7.5px; font-weight:700; color:#1A1A2E;">Wellness</span>
+                <span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#D97706; background:#FEF3C7; border:1px solid #FCD34D; border-radius:100px; padding:0 5px;">7</span>
+              </div>
+              <div style="flex-shrink:0; background:linear-gradient(145deg,#7A4F80,#9B6FA0,#B88DC0); padding:7px 8px;">
+                <div style="font-family:'Inter',sans-serif; font-size:5px; font-weight:700; letter-spacing:0.14em; color:rgba(255,255,255,0.75);">REST &amp; RESTORE</div>
+                <div style="font-family:'Newsreader',serif; font-size:11px; color:#FFFFFF; line-height:1.1; margin-top:1px;">Menstrual Phase</div>
+                <div style="font-family:'Inter',sans-serif; font-size:6px; color:rgba(255,255,255,0.72); margin-top:2px;">Day 3 of 5 · 2d to Follicular</div>
+              </div>
+              <div style="flex:1; min-height:0; padding:6px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+                <div style="background:#FFFFFF; border:1px solid #E8E6F0; border-radius:8px; padding:5px 6px; flex-shrink:0;">
+                  <div style="font-family:'Inter',sans-serif; font-size:6.5px; font-weight:700; color:#1A1A2E;">How are you feeling?</div>
+                  <div style="display:flex; gap:3px; margin-top:4px;">
+                    <span style="flex:1; height:11px; border-radius:4px; background:#F5EEF7; border:1px solid #D9BEE0; display:block;"></span>
+                    <span style="flex:1; height:11px; border-radius:4px; background:#FAFAFA; border:1px solid #E8E6F0; display:block;"></span>
+                    <span style="flex:1; height:11px; border-radius:4px; background:#FAFAFA; border:1px solid #E8E6F0; display:block;"></span>
+                  </div>
+                </div>
+                <div style="background:#F5EEF7; border:1px solid #D9BEE0; border-radius:8px; padding:5px 6px; flex-shrink:0;">
+                  <div style="font-family:'Inter',sans-serif; font-size:5px; font-weight:700; letter-spacing:0.1em; color:#9B6FA0;">TODAY'S INSIGHT</div>
+                  <div style="font-family:'Inter',sans-serif; font-size:6.5px; font-style:italic; color:#1A1A2E; line-height:1.35; margin-top:2px;">Day 3 tends to feel heavy. That's real — not weakness.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:25px; font-weight:800; letter-spacing:-0.025em; text-transform:uppercase; line-height:1; margin:18px 0 0;">Designing for the trough, not the average</h3>
+          <p style="margin:9px 0 0; color:#3C4148; font-size:15px;">Ten participants, 22 check-ins, 30 days. The 83% completion collapse late in the cycle killed my long check-in form — the product had to ask less exactly when it wanted to ask more.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; padding-top:13px; border-top:1px solid #DED8C6; flex-wrap:wrap;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; color:#5E625B;">Research + design · independent</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</span>
+          </div>
+        </a>
+        <a href="Case - PeopleVision.dc.html" style="position:relative; display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.16), 0 16px 40px -20px rgba(0,0,0,0.55); padding:20px 20px 24px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B;">Case 03 — HR-tech · workforce analytics</span>
+            <span style="display:inline-flex; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:3px; border:1.5px dashed currentColor; transform:rotate(-1.4deg); color:#2C5A45; background:#E7EFE9;">Shipped</span>
+          </div>
+          <div style="background:#F4F5F7; height:238px; border:1px solid #E2E4E8; border-radius:2px; padding:12px; display:flex; flex-direction:column; overflow:hidden;">
+            <div style="height:17px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-family:'Poppins',sans-serif; font-size:10px; font-weight:600; color:#1A1A1A; white-space:nowrap;">Attendance / Today</span>
+              <span style="font-family:'Inter',sans-serif; font-size:7px; font-weight:600; color:#FFFFFF; background:#17181C; border-radius:5px; padding:3px 8px;">Export</span>
+            </div>
+            <div style="height:8px; flex-shrink:0;"></div>
+            <div style="height:44px; flex-shrink:0; display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+<div style="background:#FFFFFF; border-radius:8px; padding:6px 7px; box-shadow:0 1px 3px rgba(0,0,0,0.05);"><div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:700; color:#DC2626; line-height:1;">94</div><div style="font-family:'Inter',sans-serif; font-size:6.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#8392AB; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Not checked in</div></div>
+<div style="background:#FFFFFF; border-radius:8px; padding:6px 7px; box-shadow:0 1px 3px rgba(0,0,0,0.05);"><div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:700; color:#16A34A; line-height:1;">67</div><div style="font-family:'Inter',sans-serif; font-size:6.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#8392AB; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Work from home</div></div>
+<div style="background:#FFFFFF; border-radius:8px; padding:6px 7px; box-shadow:0 1px 3px rgba(0,0,0,0.05);"><div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:700; color:#D97706; line-height:1;">43</div><div style="font-family:'Inter',sans-serif; font-size:6.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#8392AB; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Late</div></div>
+<div style="background:#FFFFFF; border-radius:8px; padding:6px 7px; box-shadow:0 1px 3px rgba(0,0,0,0.05);"><div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:700; color:#0891B2; line-height:1;">38</div><div style="font-family:'Inter',sans-serif; font-size:6.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#8392AB; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Outdoor</div></div>
+            </div>
+            <div style="height:8px; flex-shrink:0;"></div>
+            <div style="height:132px; flex-shrink:0; background:#FFFFFF; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); overflow:hidden;">
+              <div style="height:19px; display:grid; grid-template-columns:1.5fr 1fr 0.95fr; align-items:center; gap:6px; padding:0 10px; border-bottom:1px solid #F0F0F0; font-family:'Inter',sans-serif; font-size:6.5px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; color:#8392AB;"><span>Employee</span><span>Department</span><span>Status</span></div>
+<div style="height:28px; display:grid; grid-template-columns:1.5fr 1fr 0.95fr; align-items:center; gap:6px; padding:0 10px; border-bottom:1px solid #F5F5F5;"><span style="display:flex; align-items:center; gap:5px; min-width:0;"><span style="width:16px; height:16px; border-radius:50%; background:#17181C; color:#FFF; font-family:'Inter',sans-serif; font-size:6.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">AV</span><span style="font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:#1A1A1A; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Anita Verma</span></span><span style="font-family:'Inter',sans-serif; font-size:7px; color:#67748E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Backend Eng</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; letter-spacing:0.04em; color:#FFF; background:#0891B2; border-radius:5px; padding:2px 5px; justify-self:start; white-space:nowrap;">OUTDOOR</span></div>
+<div style="height:28px; display:grid; grid-template-columns:1.5fr 1fr 0.95fr; align-items:center; gap:6px; padding:0 10px; border-bottom:1px solid #F5F5F5;"><span style="display:flex; align-items:center; gap:5px; min-width:0;"><span style="width:16px; height:16px; border-radius:50%; background:#17181C; color:#FFF; font-family:'Inter',sans-serif; font-size:6.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">NJ</span><span style="font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:#1A1A1A; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Nikhil Joshi</span></span><span style="font-family:'Inter',sans-serif; font-size:7px; color:#67748E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Frontend Eng</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; letter-spacing:0.04em; color:#FFF; background:#D97706; border-radius:5px; padding:2px 5px; justify-self:start; white-space:nowrap;">LATE</span></div>
+<div style="height:28px; display:grid; grid-template-columns:1.5fr 1fr 0.95fr; align-items:center; gap:6px; padding:0 10px; border-bottom:1px solid #F5F5F5;"><span style="display:flex; align-items:center; gap:5px; min-width:0;"><span style="width:16px; height:16px; border-radius:50%; background:#17181C; color:#FFF; font-family:'Inter',sans-serif; font-size:6.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">KP</span><span style="font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:#1A1A1A; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Karan Patel</span></span><span style="font-family:'Inter',sans-serif; font-size:7px; color:#67748E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">QA &amp; Testing</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; letter-spacing:0.04em; color:#FFF; background:#16A34A; border-radius:5px; padding:2px 5px; justify-self:start; white-space:nowrap;">WFH</span></div>
+<div style="height:28px; display:grid; grid-template-columns:1.5fr 1fr 0.95fr; align-items:center; gap:6px; padding:0 10px;"><span style="display:flex; align-items:center; gap:5px; min-width:0;"><span style="width:16px; height:16px; border-radius:50%; background:#17181C; color:#FFF; font-family:'Inter',sans-serif; font-size:6.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">RG</span><span style="font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:#1A1A1A; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Rohan Gupta</span></span><span style="font-family:'Inter',sans-serif; font-size:7px; color:#67748E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Frontend Eng</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; letter-spacing:0.04em; color:#FFF; background:#DC2626; border-radius:5px; padding:2px 5px; justify-self:start; white-space:nowrap;">NOT IN</span></div>
+            </div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:25px; font-weight:800; letter-spacing:-0.025em; text-transform:uppercase; line-height:1; margin:18px 0 0;">Answering “who is where” in one screen</h3>
+          <p style="margin:9px 0 0; color:#3C4148; font-size:15px;">Present/absent could not describe a workforce that travels. Nine statuses — outdoor, travelling, at-event, WFH — became first-class, so a manager reads the day without opening a report.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; padding-top:13px; border-top:1px solid #DED8C6; flex-wrap:wrap;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; color:#5E625B;">Sole designer · org hierarchy + reports</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</span>
+          </div>
+        </a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px; margin:46px 0 20px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,242,232,0.72); white-space:nowrap;">Also in the archive</span>
+        <span style="flex:1; height:1px; background:rgba(245,242,232,0.16); display:block;"></span>
+        <span data-deco="1" style="display:inline-block; font-family:'Archivo',sans-serif; font-size:12px; font-weight:900; letter-spacing:0.09em; text-transform:uppercase; color:#8CBFA3; border:2.5px solid #8CBFA3; border-radius:4px; padding:5px 11px 6px; transform:rotate(-3.2deg); opacity:0.85; white-space:nowrap;">Four more</span>
+      </div>
+      <div data-g="four" style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+        <a href="Case - Learning Vision.dc.html" style="display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.14), 0 12px 30px -18px rgba(0,0,0,0.5); padding:16px 16px 18px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B; margin-bottom:11px;">EdTech · LMS</div>
+          <div style="background:#FDF8F4; border:1px solid #DAD4C2; height:130px; display:flex; overflow:hidden;">
+            <div style="width:19px; background:#FFFFFF; border-right:1px solid #EEE8E3; flex-shrink:0; padding:6px 0; display:flex; flex-direction:column; align-items:center; gap:4px;">
+              <span style="width:10px; height:10px; border-radius:3px; background:#BD1313; display:block;"></span>
+              <span style="width:13px; height:11px; border-radius:4px; background:#FDF2F2; display:block;"></span>
+              <span style="width:13px; height:11px; border-radius:4px; border:1px solid #F0EAE5; display:block;"></span>
+            </div>
+            <div style="flex:1; min-width:0; padding:7px 8px; display:flex; flex-direction:column;">
+              <div style="height:13px; flex-shrink:0; font-family:'Poppins',sans-serif; font-size:7.5px; font-weight:600; color:#1A1A2E; white-space:nowrap;">Professor portal</div>
+              <div style="height:5px; flex-shrink:0;"></div>
+              <div style="height:30px; flex-shrink:0; display:grid; grid-template-columns:repeat(4,1fr); gap:4px;">
+                <div style="background:#FFFFFF; border:1px solid #EEE8E3; border-top:2px solid #E8620A; border-radius:5px; padding:3px 4px;"><div style="font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:#1A1A2E; line-height:1;">12</div><div style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; text-transform:uppercase; color:#9898B0;">Courses</div></div>
+                <div style="background:#FFFFFF; border:1px solid #EEE8E3; border-top:2px solid #2563EB; border-radius:5px; padding:3px 4px;"><div style="font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:#1A1A2E; line-height:1;">8</div><div style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; text-transform:uppercase; color:#9898B0;">Batches</div></div>
+                <div style="background:#FFFFFF; border:1px solid #EEE8E3; border-top:2px solid #16A34A; border-radius:5px; padding:3px 4px;"><div style="font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:#1A1A2E; line-height:1;">247</div><div style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; text-transform:uppercase; color:#9898B0;">Learners</div></div>
+                <div style="background:#FFFFFF; border:1px solid #EEE8E3; border-top:2px solid #7C3AED; border-radius:5px; padding:3px 4px;"><div style="font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:#1A1A2E; line-height:1;">156</div><div style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; text-transform:uppercase; color:#9898B0;">Content</div></div>
+              </div>
+              <div style="height:5px; flex-shrink:0;"></div>
+              <div style="height:40px; flex-shrink:0; background:#FFFFFF; border:1px solid #EEE8E3; border-radius:5px; overflow:hidden;">
+                <div style="height:12px; background:#FDF8F4; border-bottom:1px solid #EEE8E3; padding:0 6px; display:flex; align-items:center; font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; text-transform:uppercase; color:#6B6B8A;">Batch · status</div>
+                <div style="height:13px; padding:0 6px; display:flex; align-items:center; gap:5px; border-bottom:1px solid #F5F0EB;"><span style="font-family:'Inter',sans-serif; font-size:6.5px; color:#1A1A2E; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">React Batch 2025-A</span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#16A34A; background:#DCFCE7; border-radius:3px; padding:0 4px;">Active</span></div>
+                <div style="height:13px; padding:0 6px; display:flex; align-items:center; gap:5px;"><span style="font-family:'Inter',sans-serif; font-size:6.5px; color:#1A1A2E; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Leadership Q4</span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#DC2626; background:#FEF2F2; border-radius:3px; padding:0 4px;">Expired</span></div>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin:13px 0 0;">Three roles, one shell</h3>
+          <p style="margin:7px 0 0; font-size:13.5px; color:#4A4E47;">Student, professor and supervisor share a product without becoming three of them.</p>
+          <div style="margin-top:12px; padding-top:11px; border-top:1px solid #DED8C6; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</div>
+        </a>
+        <a href="Case - HRMS.dc.html" style="display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.14), 0 12px 30px -18px rgba(0,0,0,0.5); padding:16px 16px 18px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B; margin-bottom:11px;">HR-tech · onboarding</div>
+          <div style="background:#F4F5F7; border:1px solid #DAD4C2; height:130px; padding:9px; display:flex; flex-direction:column; overflow:hidden;">
+            <div style="height:13px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Poppins',sans-serif; font-size:7.5px; font-weight:600; color:#0F172A; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Arjun Mehta</span><span style="font-family:'JetBrains Mono',monospace; font-size:5.5px; color:#5E625B; white-space:nowrap;">AIV-2025-0142</span></div>
+            <div style="height:3px; flex-shrink:0;"></div>
+            <div style="height:24px; flex-shrink:0; display:flex; align-items:flex-start; gap:2px;">
+<div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:3px;"><span style="width:11px; height:11px; border-radius:50%; background:#16A34A; display:flex; align-items:center; justify-content:center;"><svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="4"><path d="M20 6L9 17l-5-5"></path></svg></span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#94A3B8; white-space:nowrap;">Offer</span></div>
+<div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:3px;"><span style="width:11px; height:11px; border-radius:50%; background:#BD1313; display:flex; align-items:center; justify-content:center;"></span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#BD1313; white-space:nowrap;">KYC</span></div>
+<div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:3px;"><span style="width:11px; height:11px; border-radius:50%; background:#DEE2E6; display:flex; align-items:center; justify-content:center;"></span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#94A3B8; white-space:nowrap;">Approval</span></div>
+<div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:3px;"><span style="width:11px; height:11px; border-radius:50%; background:#DEE2E6; display:flex; align-items:center; justify-content:center;"></span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#94A3B8; white-space:nowrap;">Onboarded</span></div>
+            </div>
+            <div style="height:3px; flex-shrink:0;"></div>
+            <div style="height:67px; flex-shrink:0; background:#FFFFFF; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.05); padding:5px 8px; display:flex; flex-direction:column; gap:3px; overflow:hidden;">
+<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#475569;">Aadhaar</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#166534; background:#DCFCE7; border-radius:4px; padding:1px 5px; white-space:nowrap;">VERIFIED</span></div>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#475569;">PAN</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#B45309; background:#FEF3C7; border-radius:4px; padding:1px 5px; white-space:nowrap;">PENDING</span></div>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#475569;">Bank Details</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#64748B; background:#F1F5F9; border-radius:4px; padding:1px 5px; white-space:nowrap;">NOT STARTED</span></div>
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#475569;">Driving Licence</span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#94A3B8; background:#F8FAFC; border-radius:4px; padding:1px 5px; white-space:nowrap;">NOT REQUIRED</span></div>
+            </div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin:13px 0 0;">Onboarding that leaves a trail</h3>
+          <p style="margin:7px 0 0; font-size:13.5px; color:#4A4E47;">Four gated stages and four document states, each change written to an audit trail HR can defend.</p>
+          <div style="margin-top:12px; padding-top:11px; border-top:1px solid #DED8C6; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</div>
+        </a>
+        <a href="Case - Offboarding.dc.html" style="display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.14), 0 12px 30px -18px rgba(0,0,0,0.5); padding:16px 16px 18px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B; margin-bottom:11px;">HR-tech · exit suite</div>
+          <div style="background:#F4F5F7; border:1px solid #DAD4C2; height:130px; padding:9px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+            <div style="height:13px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap:6px;"><span style="font-family:'Poppins',sans-serif; font-size:7.5px; font-weight:600; color:#0F172A; white-space:nowrap;">Overall Clearance</span><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#64748B; white-space:nowrap;">3 of 4 departments cleared</span></div>
+            <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:4px;">
+<div style="flex:1; background:#FFFFFF; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05); padding:0 7px; display:flex; align-items:center; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#0F172A; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">IT &amp; Systems</span><span style="width:30px; height:3px; border-radius:100px; background:#EDEDED; display:block; flex-shrink:0;"><span style="display:block; width:100%; height:3px; border-radius:100px; background:#2563EB;"></span></span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#2563EB; width:26px; flex-shrink:0; text-align:right;">100%</span></div>
+<div style="flex:1; background:#FFFFFF; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05); padding:0 7px; display:flex; align-items:center; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#0F172A; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Admin</span><span style="width:30px; height:3px; border-radius:100px; background:#EDEDED; display:block; flex-shrink:0;"><span style="display:block; width:100%; height:3px; border-radius:100px; background:#7C3AED;"></span></span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#7C3AED; width:26px; flex-shrink:0; text-align:right;">100%</span></div>
+<div style="flex:1; background:#FFFFFF; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05); padding:0 7px; display:flex; align-items:center; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#0F172A; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Project Manager</span><span style="width:30px; height:3px; border-radius:100px; background:#EDEDED; display:block; flex-shrink:0;"><span style="display:block; width:100%; height:3px; border-radius:100px; background:#16A34A;"></span></span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#16A34A; width:26px; flex-shrink:0; text-align:right;">100%</span></div>
+<div style="flex:1; background:#FFFFFF; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05); padding:0 7px; display:flex; align-items:center; gap:6px;"><span style="font-family:'Inter',sans-serif; font-size:7px; color:#0F172A; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Accounts</span><span style="width:30px; height:3px; border-radius:100px; background:#EDEDED; display:block; flex-shrink:0;"><span style="display:block; width:40%; height:3px; border-radius:100px; background:#D97706;"></span></span><span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#D97706; width:26px; flex-shrink:0; text-align:right;">40%</span></div>
+            </div>
+            <div style="flex-shrink:0; display:flex; align-items:center; gap:4px; background:#FFFBEB; border:1px solid #FDE68A; border-radius:4px; padding:2px 5px;"><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:600; color:#B45309; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Settlement blocked — Accounts clearance pending</span></div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin:13px 0 0;">Four sign-offs, one exit</h3>
+          <p style="margin:7px 0 0; font-size:13.5px; color:#4A4E47;">Initiation → clearance → settlement → dispatch → completed, with settlement hard-blocked until all four departments sign off.</p>
+          <div style="margin-top:12px; padding-top:11px; border-top:1px solid #DED8C6; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</div>
+        </a>
+        <a href="Case - EduVision.dc.html" style="display:block; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:0 2px 3px rgba(0,0,0,0.14), 0 12px 30px -18px rgba(0,0,0,0.5); padding:16px 16px 18px; transition:transform 190ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 190ms cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:translateY(-4px); box-shadow:0 4px 7px rgba(0,0,0,0.17), 0 30px 56px -24px rgba(0,0,0,0.5);" style-active="transform:translateY(-1px);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#5E625B; margin-bottom:11px;">EdTech · career prep</div>
+          <div style="background:#F8FAFF; border:1px solid #DAD4C2; height:130px; padding:9px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+            <div style="height:13px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap:6px;">
+              <span style="font-family:'Poppins',sans-serif; font-size:7.5px; font-weight:600; color:#0F172A; white-space:nowrap;">HR Interview · Aria</span>
+              <span style="font-family:'Inter',sans-serif; font-size:6px; font-weight:700; color:#16A34A; background:#F0FDF4; border:1px solid #86EFAC; border-radius:100px; padding:1px 6px; white-space:nowrap;">Q5 / 8</span>
+            </div>
+            <div style="height:3px; flex-shrink:0; background:#E2E8F0; border-radius:100px; overflow:hidden;"><span style="display:block; width:50%; height:3px; background:#16A34A;"></span></div>
+            <div style="flex:1; min-height:0; background:#FFFFFF; border:1px solid #E2E8F0; border-radius:8px; padding:6px 8px; display:flex; flex-direction:column; gap:4px; overflow:hidden;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-shrink:0;">
+                <span style="font-family:'Inter',sans-serif; font-size:5.5px; font-weight:700; color:#16A34A; background:#F0FDF4; border:1px solid #86EFAC; border-radius:100px; padding:1px 5px;">Behavioral</span>
+                <span style="font-family:'Inter',sans-serif; font-size:5.5px; color:#94A3B8; white-space:nowrap;">Question 5 of 8</span>
+              </div>
+              <div style="font-family:'Poppins',sans-serif; font-size:7.5px; font-weight:600; color:#0F172A; line-height:1.3; flex-shrink:0;">Describe a challenge you faced and how you overcame it.</div>
+              <div style="display:flex; align-items:center; gap:4px; background:#F0FDF4; border:1px solid #86EFAC; border-radius:5px; padding:2px 5px; flex-shrink:0;"><span style="font-family:'Inter',sans-serif; font-size:5.5px; font-style:italic; color:#16A34A; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Hint: use STAR — Situation Task Action Result</span></div>
+              <div style="margin-top:auto; display:flex; gap:4px; flex-shrink:0;">
+                <span style="flex:1; background:#F8FAFF; border:1px solid #E2E8F0; border-radius:4px; padding:2px 4px; font-family:'Inter',sans-serif; font-size:5.5px; color:#475569; text-align:center;">Avg 75%</span>
+                <span style="flex:1; background:#F8FAFF; border:1px solid #E2E8F0; border-radius:4px; padding:2px 4px; font-family:'Inter',sans-serif; font-size:5.5px; color:#475569; text-align:center;">Best 82%</span>
+                <span style="flex:1; background:#F8FAFF; border:1px solid #E2E8F0; border-radius:4px; padding:2px 4px; font-family:'Inter',sans-serif; font-size:5.5px; color:#475569; text-align:center;">23 asked</span>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family:'Archivo',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin:13px 0 0;">A rehearsal that answers back</h3>
+          <p style="margin:7px 0 0; font-size:13.5px; color:#4A4E47;">Aria asks real questions, scores each answer, and names the fix — for students with nobody to rehearse with.</p>
+          <div style="margin-top:12px; padding-top:11px; border-top:1px solid #DED8C6; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A;">Read case →</div>
+        </a>
+      </div>
+    </section>
+    <sc-if value="{{ showMethod }}" hint-placeholder-val="{{ true }}">
+    <section id="method" data-screen-label="03 Method" style="margin-top:80px; scroll-margin-top:64px;">
+      <div style="margin-bottom:24px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,242,232,0.74);">Section 03 — how one designer covered six products</div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:clamp(30px,3.6vw,46px); font-weight:800; letter-spacing:-0.035em; text-transform:uppercase; color:#F5F2E8; line-height:1; margin:8px 0 0;">The method</h2>
+      </div>
+      <div style="position:relative;">
+      <span data-deco="1" style="position:absolute; top:-104px; right:4px; z-index:3; width:124px; height:124px; background:#6B5CA5; color:#F5F2E8; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 22px; font-family:'Archivo',sans-serif; font-size:11.5px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase; line-height:1.3; transform:rotate(-7deg); clip-path:polygon(50% 0%,60% 12%,74% 6%,78% 21%,93% 22%,90% 37%,104% 45%,94% 56%,102% 69%,88% 74%,89% 89%,74% 86%,66% 99%,54% 90%,42% 100%,34% 87%,19% 90%,20% 75%,6% 70%,14% 57%,3% 47%,17% 38%,12% 24%,27% 22%,29% 7%,43% 13%);">1 designer<br>6 portals</span>
+      <div data-g="how" style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+        <div style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; padding:22px 20px 24px; box-shadow:-7px 10px 0 -2px #EFEADA, -8px 11px 1px -2px rgba(20,23,26,0.16), -12px 19px 0 -5px #E5DFCB, -13px 20px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.14), 0 12px 28px -16px rgba(0,0,0,0.45); border-top:4px solid #B0461A;">
+    
+          <div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:900; color:#DED8C6; line-height:0.8; letter-spacing:-0.04em;">01</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:800; font-size:17px; text-transform:uppercase; letter-spacing:-0.015em; margin-top:12px;">Audit before design</div>
+          <p style="margin:8px 0 0; color:#4A4E47; font-size:14px;">On existing products I took knowledge transfer from developers and walked every screen myself, listing the gaps a dev-first build had skipped.</p>
+        </div>
+        <div style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; padding:22px 20px 24px; box-shadow:6px 11px 0 -2px #EFEADA, 7px 12px 1px -2px rgba(20,23,26,0.16), 11px 21px 0 -5px #E5DFCB, 12px 22px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.14), 0 12px 28px -16px rgba(0,0,0,0.45); border-top:4px solid #B0461A;">
+    
+          <div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:900; color:#DED8C6; line-height:0.8; letter-spacing:-0.04em;">02</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:800; font-size:17px; text-transform:uppercase; letter-spacing:-0.015em; margin-top:12px;">Write the system first</div>
+          <p style="margin:8px 0 0; color:#4A4E47; font-size:14px;">Every product got a written guideline — users, tokens, component rules, icon sources — before a single screen. That document is why six products don't look like six accidents.</p>
+        </div>
+        <div style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; padding:22px 20px 24px; box-shadow:-6px 9px 0 -2px #EFEADA, -7px 10px 1px -2px rgba(20,23,26,0.16), -11px 17px 0 -5px #E5DFCB, -12px 18px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.14), 0 12px 28px -16px rgba(0,0,0,0.45); border-top:4px solid #6B5CA5;">
+    
+          <div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:900; color:#DED8C6; line-height:0.8; letter-spacing:-0.04em;">03</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:800; font-size:17px; text-transform:uppercase; letter-spacing:-0.015em; margin-top:12px;">Paper, then prompts</div>
+          <p style="margin:8px 0 0; color:#4A4E47; font-size:14px;">Flows start on paper. Then a phased, screen-by-screen prompt sequence drives high-fidelity output. AI accelerated the execution; the framing and the decisions stayed mine.</p>
+        </div>
+        <div style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; padding:22px 20px 24px; box-shadow:8px 10px 0 -2px #EFEADA, 9px 11px 1px -2px rgba(20,23,26,0.16), 14px 19px 0 -5px #E5DFCB, 15px 20px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.14), 0 12px 28px -16px rgba(0,0,0,0.45); border-top:4px solid #2C5A45;">
+    
+          <div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:900; color:#DED8C6; line-height:0.8; letter-spacing:-0.04em;">04</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:800; font-size:17px; text-transform:uppercase; letter-spacing:-0.015em; margin-top:12px;">Stay past handoff</div>
+          <p style="margin:8px 0 0; color:#4A4E47; font-size:14px;">I packaged implementation-ready artifacts and sat with developers through the build, answering the questions specs never cover.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+    </sc-if>
+    <section id="experience" data-screen-label="05 Experience" style="margin-top:80px; scroll-margin-top:64px;">
+      <div style="margin-bottom:24px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,242,232,0.74);">Section 05 — record</div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:clamp(30px,3.6vw,46px); font-weight:800; letter-spacing:-0.035em; text-transform:uppercase; color:#F5F2E8; line-height:1; margin:8px 0 0;">Experience</h2>
+      </div>
+      <div data-paper="1" style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:-8px 9px 0 -2px #EFEADA, -9px 10px 1px -2px rgba(20,23,26,0.16), -13px 18px 0 -5px #E5DFCB, -14px 19px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.16), 0 16px 40px -20px rgba(0,0,0,0.5); padding:34px 36px 32px;">
+    
+      <span aria-hidden="true" data-artifact="1" style="position:absolute; right:-17px; top:212px; width:36px; height:136px; z-index:-1; background:#22262B; background-image:repeating-linear-gradient(180deg, transparent 0 14px, rgba(245,242,232,0.55) 14px 20px); border-radius:2px; box-shadow:0 5px 11px -4px rgba(0,0,0,0.6); transform:rotate(1.4deg); pointer-events:none;"></span><span aria-hidden="true" data-artifact="1" style="position:absolute; right:-12px; bottom:36px; width:136px; height:21px; background:linear-gradient(180deg, rgba(240,188,85,0.55), rgba(217,156,46,0.48)); background-image:repeating-linear-gradient(90deg, rgba(120,84,20,0.45) 0 1px, transparent 1px 9px); border:1px solid rgba(184,127,30,0.5); border-radius:2px; transform:rotate(-6deg); box-shadow:0 3px 6px -2px rgba(20,23,26,0.35); pointer-events:none;"></span>
+      <div aria-hidden="true" data-artifact="1" style="position:absolute; left:15px; top:64px; bottom:64px; width:9px; background:repeating-linear-gradient(180deg, rgba(20,23,26,0.26) 0 1px, transparent 1px 11px); pointer-events:none;"></div>
+        <div aria-hidden="true" data-artifact="1" style="position:absolute; top:-17px; left:158px; z-index:2; width:54px; background:#F5F2E8; border:1px solid #D8D2BE; border-radius:3px; box-shadow:0 3px 7px -2px rgba(20,23,26,0.32); overflow:hidden; text-align:center; transform:rotate(-1.8deg);"><div style="background:#B0461A; color:#F5F2E8; font-family:'JetBrains Mono',monospace; font-size:8px; font-weight:700; letter-spacing:0.14em; padding:3px 0;">2026</div><div style="font-family:'Archivo',sans-serif; font-size:19px; font-weight:900; letter-spacing:-0.02em; line-height:1; padding:6px 0 7px; color:#14171A;">JUL</div></div>
+        <span data-deco="1" data-sm-hide="1" style="position:absolute; top:26px; right:34px; font-family:'Archivo',sans-serif; font-size:15px; font-weight:900; letter-spacing:0.1em; text-transform:uppercase; color:#2C5A45; border:3px solid #2C5A45; border-radius:5px; padding:7px 14px 8px; transform:rotate(-9deg); background:rgba(44,90,69,0.07); white-space:nowrap;">Shipped</span>
+        <div style="display:flex; gap:22px; flex-wrap:wrap; align-items:baseline; border-bottom:1px solid #DED8C6; padding-bottom:20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#B0461A; min-width:150px;">Feb – Jul 2026</div>
+          <div style="flex:1; min-width:260px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:21px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em;">UI/UX Design Intern</div>
+            <div style="font-family:'Newsreader',serif; font-size:17px; color:#3C4148; margin-top:2px;">T&amp;M AI and IT Solutions Pvt. Ltd. (AIVision21) — Mumbai</div>
+            <p style="margin:12px 0 0; color:#4A4E47; font-size:14.5px; max-width:720px;">Six-plus SaaS portals across HR-tech, EdTech and sales intelligence, under director-set timelines. Ran requirement sessions for new builds; took full knowledge transfer and audited every screen on existing ones. Authored the design system for each product, then worked with developers through implementation.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:14px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">LearningVision</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">HRMS</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">PeopleVision</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">SalesVision</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:5px 10px; border-radius:3px; background:#EDE9DC; color:#4A4E47;">EduVision / Prep</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:22px; flex-wrap:wrap; align-items:baseline; border-bottom:1px solid #DED8C6; padding:20px 0;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6B5CA5; min-width:150px;">2026 — ongoing</div>
+          <div style="flex:1; min-width:260px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:21px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em;">UX Researcher &amp; Designer — independent</div>
+            <div style="font-family:'Newsreader',serif; font-size:17px; color:#3C4148; margin-top:2px;">NurtureSync — co-authored research paper, under peer review</div>
+            <p style="margin:12px 0 0; color:#4A4E47; font-size:14.5px; max-width:720px;">Designed and ran a longitudinal mixed-methods study: 10 participants, 22 structured check-ins across a 30-day cycle. Co-authored “Emotionally Adaptive UI/UX for Menstrual Cycle Tracking,” submitted to <em>Sexual and Reproductive Health Matters</em> — currently under review.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:22px; flex-wrap:wrap; align-items:baseline; padding-top:20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#5E625B; min-width:150px;">Education</div>
+          <div style="flex:1; min-width:260px; display:flex; gap:40px; flex-wrap:wrap;">
+            <div><div style="font-size:15px; font-weight:600;">MCA, 2026 — 7.61 CGPI</div><div style="font-size:14px; color:#5E625B;">K. J. Somaiya Institute of Management, Somaiya Vidyavihar University</div></div>
+            <div><div style="font-size:15px; font-weight:600;">B.Com, 2023 — 71.42%</div><div style="font-size:14px; color:#5E625B;">Dr. Ambedkar College of Commerce &amp; Economics</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" data-screen-label="06 Contact" style="margin-top:80px; padding-bottom:70px; scroll-margin-top:64px;">
+      <div data-paper="1" style="position:relative; background-color:#F5F2E8; background-image:radial-gradient(rgba(20,23,26,0.035) 1px, transparent 1.2px), repeating-linear-gradient(97deg, rgba(120,105,70,0.035) 0 1px, transparent 1px 4px), repeating-linear-gradient(3deg, rgba(120,105,70,0.028) 0 1px, transparent 1px 6px); background-size:5px 5px, auto, auto; border-radius:3px; box-shadow:5px 10px 0 -2px #EFEADA, 6px 11px 1px -2px rgba(20,23,26,0.16), 10px 20px 0 -5px #E5DFCB, 11px 21px 2px -5px rgba(20,23,26,0.2), 0 2px 3px rgba(0,0,0,0.16), 0 20px 50px -22px rgba(0,0,0,0.55); padding:46px 40px 40px;">
+    
+    <span aria-hidden="true" data-artifact="1" style="position:absolute; top:0; left:52px; right:52px; height:15px; background:linear-gradient(180deg, rgba(20,23,26,0.14), rgba(20,23,26,0)); pointer-events:none;"></span><div aria-hidden="true" data-artifact="1" style="position:absolute; top:-14px; left:58px; right:58px; height:27px; display:flex; justify-content:space-between; align-items:center; pointer-events:none; z-index:3;"><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span><span style="display:block; width:10px; height:27px; border:2.5px solid #A9AEB4; border-top-color:#CDD2D7; border-radius:50%; transform:skewX(-13deg); box-shadow:0 2px 2px rgba(20,23,26,0.22);"></span></div>
+      
+      <span aria-hidden="true" data-artifact="1" style="position:absolute; left:26px; right:26px; bottom:-8px; height:11px; background:#EBE6D6; border-radius:0 0 3px 3px; box-shadow:0 5px 9px -4px rgba(20,23,26,0.4); z-index:-1; transform:rotate(0.35deg); pointer-events:none;"></span><div aria-hidden="true" data-artifact="1" style="position:absolute; right:34px; bottom:-7px; height:11px; display:flex; align-items:center; transform:rotate(-2.4deg); filter:drop-shadow(0 3px 3px rgba(20,23,26,0.28)); pointer-events:none;"><span style="display:block; width:0; height:0; border-top:5.5px solid transparent; border-bottom:5.5px solid transparent; border-right:9px solid #4A4E47;"></span><span style="display:block; width:8px; height:11px; background:linear-gradient(180deg,#E8D9B8,#CBB98F);"></span><span style="display:block; width:96px; height:11px; background:linear-gradient(180deg,#F0BC55,#D99C2E 60%,#B87F1E);"></span><span style="display:block; width:9px; height:11px; background:linear-gradient(180deg,#C6CBD1,#8E949A);"></span><span style="display:block; width:13px; height:11px; background:linear-gradient(180deg,#E39A96,#C2726E); border-radius:0 4px 4px 0;"></span></div>
+        <div style="position:absolute; top:-12px; right:60px; width:118px; height:30px; background:rgba(214,196,150,0.72); transform:rotate(2.2deg); box-shadow:0 1px 2px rgba(0,0,0,0.16);"></div>
+        <span data-deco="1" data-sm-hide="1" style="position:absolute; top:34px; right:44px; z-index:2; width:186px; background:#F4DE7E; color:#4A4E47; font-family:'Caveat',cursive; font-size:20px; line-height:1.25; padding:16px 18px 18px; transform:rotate(3deg); box-shadow:2px 4px 12px rgba(0,0,0,0.18); display:block;">paper first.<br>system second.<br>screens last.</span>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.15em; text-transform:uppercase; color:#5E625B;">Section 06 — contact</div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:clamp(30px,4.2vw,54px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; line-height:0.95; margin:10px 0 0; max-width:min(100%, calc(100% - 250px));">Looking for a<br>product design role</h2>
+        <p style="font-family:'Newsreader',serif; font-size:19px; color:#3C4148; margin:16px 0 0; max-width:600px;">Enterprise SaaS, design systems, or research-led product work. Mumbai or remote. The fastest way to reach me is email — I answer.</p>
+        <div data-g="foot" style="display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:34px; padding-top:26px; border-top:1px solid #DED8C6;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#5E625B;">Email</div>
+            <a href="mailto:shreyashpatekar10@gmail.com" style="display:block; font-size:15px; font-weight:600; margin-top:5px; word-break:break-all;">shreyashpatekar10@gmail.com</a>
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#5E625B;">Phone</div>
+            <a href="tel:+917304633562" style="display:block; font-size:15px; font-weight:600; margin-top:5px;">+91 73046 33562</a>
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#5E625B;">Resume</div>
+            <a href="uploads/Shreyash_Patekar_Resume_2026.pdf" target="_blank" rel="noopener" style="display:block; font-size:15px; font-weight:600; margin-top:5px;">Download PDF ↓</a>
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#5E625B;">LinkedIn ↗</div>
+            <a href="https://www.linkedin.com/in/shreyash-patekar-56215b309" target="_blank" rel="noopener" style="display:block; font-size:15px; font-weight:600; margin-top:5px;">shreyash-patekar</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-top:26px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(245,242,232,0.72);">
+        <span>Shreyash Patekar — product / UX designer</span>
+        <span data-sm-hide="1">Archive vol. 01 · built by hand · {{ yearText }}</span>
+        <a href="#top" style="color:rgba(245,242,232,0.72);" style-hover="color:#F5F2E8;">Back to top ↑</a>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;openToWork&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showMethod&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showBoardGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Surface&quot;}}">
+class Component extends DCLogic {
+  state = { now: new Date() };
+  componentDidMount() {
+    this.t = setInterval(() => this.setState({ now: new Date() }), 30000);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const n = this.state.now;
+    return {
+      clockText: n.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' }) + ' IST',
+      yearText: String(n.getFullYear()),
+      openToWork: this.props.openToWork ?? true,
+      showBoardGrid: this.props.showBoardGrid ?? true,
+      showMethod: this.props.showMethod ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

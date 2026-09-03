@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduVision — Student App</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --font-display:'Syne',serif; --font-body:'Plus Jakarta Sans',sans-serif;
+    --brand:#BD1313; --brand-hover:#991010; --brand-deep:#7A0D0D; --brand-light:#FDF2F2; --brand-border:#F5BFBF;
+    --success:#16A34A; --warning:#D97706; --error:#DC2626;
+    --page-bg:#FAFAFA; --card-bg:#FFFFFF; --outer-bg:#F1F5F9;
+    --text-1:#0F172A; --text-2:#475569; --text-3:#64748B; --text-4:#94A3B8; --border:#E2E8F0;
+  }
+  html,body{height:100%;margin:0;} #root{height:100%;}
+  body{font-family:var(--font-body);color:var(--text-1);background:var(--outer-bg);-webkit-font-smoothing:antialiased;}
+  @keyframes screenEnter{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+  @keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-12px) rotate(3deg);}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.12);opacity:.8;}}
+  @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+  @keyframes toastEnter{from{opacity:0;transform:translateX(-50%) translateY(-60px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+  @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(80px) rotate(360deg);opacity:0;}}
+  @keyframes countUp{from{opacity:.3;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
+  @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+  @keyframes badgePop{0%{transform:scale(0);opacity:0;}60%{transform:scale(1.15);opacity:1;}100%{transform:scale(1);}}
+  @keyframes loadProgress{from{width:0%;}to{width:100%;}}
+  .screen-enter{animation:screenEnter 280ms ease-out both;}
+  .inner-scroll{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#F5BFBF transparent;}
+  .inner-scroll::-webkit-scrollbar{width:4px;}
+  .inner-scroll::-webkit-scrollbar-thumb{background:#F5BFBF;border-radius:9999px;}
+  #ev-boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(145deg,#7A0D0D 0%,#BD1313 55%,#D94040 100%);color:rgba(255,255,255,.8);font-size:12px;letter-spacing:.12em;text-transform:uppercase;z-index:9999;}
+  #ev-boot span{display:block;width:26px;height:26px;border:2.5px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;}
+</style>
+</head><body>
+<div id="ev-boot"><span></span>Loading EduVision</div>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types@15/prop-types.min.js" crossorigin></script>
+<script>window.react = window.React; window['react-dom'] = window.ReactDOM;</script>
+<script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/recharts@2.12.7/umd/Recharts.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script>
+  (async function () {
+    var boot = document.getElementById('ev-boot');
+    try {
+      var src = await (await fetch('eduvision-app.tsx')).text();
+      var out = Babel.transform(src, { presets: ['typescript', 'react'], filename: 'app.tsx' }).code;
+      (0, eval)(out);
+      var t = setInterval(function () {
+        if (document.getElementById('root').childNodes.length) { clearInterval(t); if (boot) boot.remove(); }
+      }, 100);
+    } catch (e) {
+      console.error(e);
+      if (boot) boot.textContent = 'Failed to load prototype: ' + e.message;
+    }
+  })();
+</script>
+</body></html>

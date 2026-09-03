@@ -1,0 +1,1013 @@
+# LearningVision — Professor Portal System Guidelines
+
+# Project: LearningVision by AIVision21
+
+# Version: 1.0 — Build Ready
+
+# Last Updated: May 2025
+
+=============================================================
+COMPANY & PROJECT OVERVIEW
+=============================================================
+
+## Company
+
+- Name: AIVision21
+- Tagline: "Provides Insights. Exemplifies Learning."
+- Website: learningvisionai.com
+- Email: info@aivision21.co
+- Phone: +91 93724 88391
+- Logo: https://i.ibb.co/s9CvkVdd/aivision21-logo.png
+
+## Product
+
+- Name: LearningVision
+- Type: AI-powered Learning Experience Platform
+- Portal: Professor / Instructor Portal
+- Version: 1.0
+
+## What Is LearningVision
+
+LearningVision is an AI-powered learning experience
+platform that unifies training content, intelligent
+tutoring, adaptive learning journeys, expert networks,
+and complete skill tracking into one seamless system.
+
+## Modules (5 total):
+
+1. Learning Management System (LMS)
+2. TutorBot (AI-Assisted)
+3. AI-Assisted Learning Journey
+4. Expert Network
+5. Skill Management
+
+## Who Uses This Portal
+
+- Primary: Professors / Instructors / Trainers
+- Secondary: Supervisors / Department Heads
+- Age: 28–55 years
+- Context: Corporate L&D and academic institutions
+- Device: Desktop primary
+- Mindset: Structured, process-oriented, professional
+  Needs efficiency and clear workflows
+
+## Design Philosophy
+
+Clean, warm, professional EdTech.
+Pastel backgrounds, white cards, red accents.
+Think: Canvas LMS + Notion + Google Classroom
+BUT more polished, more premium, more AI-forward.
+Warm pastels make it feel approachable not cold.
+Every screen should feel organized and trustworthy.
+
+=============================================================
+CRITICAL — READ BEFORE GENERATING ANYTHING
+=============================================================
+
+DESKTOP-FIRST application.
+Primary experience = desktop (1280px+)
+Secondary = mobile responsive adaptation
+
+UI FEEL: Warm professional EdTech SaaS
+NOT corporate grey, NOT student casual
+Professor/instructor audience — structured workflow
+
+LAYOUT: Icon-only sidebar (same as EduVision)
+64px wide, always visible, no labels
+Top bar 56px
+Main content area fills remaining space
+
+FEEL: Notion + Canvas LMS + warm pastel energy
+Soft backgrounds, crisp white cards,
+#BD1313 as the ONE strong accent color
+
+=============================================================
+ILLUSTRATION & ICON SOURCES
+=============================================================
+
+PRIMARY ILLUSTRATIONS:
+Beam style from Icons8:
+https://icons8.com/illustrations/style--beam
+
+Direct URL pattern:
+https://img.icons8.com/external-becris-lineal-color-becris/[size]/[name].png
+
+Use these beam illustration URLs:
+Dashboard hero:
+https://img.icons8.com/external-flaticons-flat-flat-icons/128/external-dashboard-user-interface-flaticons-flat-flat-icons.png
+
+Course creation:
+https://img.icons8.com/external-flaticons-flat-flat-icons/128/external-online-learning-education-flaticons-flat-flat-icons.png
+
+Batch:
+https://img.icons8.com/external-flaticons-flat-flat-icons/128/external-team-human-resources-flaticons-flat-flat-icons.png
+
+Reports:
+https://img.icons8.com/external-flaticons-flat-flat-icons/128/external-analytics-marketing-flaticons-flat-flat-icons.png
+
+Empty state general:
+https://img.icons8.com/external-flaticons-flat-flat-icons/128/external-empty-box-ecommerce-flaticons-flat-flat-icons.png
+
+FALLBACK — Icons8 3D Fluency (for small icons):
+Base: https://img.icons8.com/3d-fluency/100/[name].png
+
+graduation-cap, bookmark-book, trophy,
+goal, lightning-bolt, star, microphone,
+bar-chart, conference-call, resume,
+certificate, book, fire-element
+
+PULSAR COLOR ICONS (for UI icons):
+Base: https://img.icons8.com/pulsar-color/48/[name].png
+
+Use for sidebar and section icons:
+dashboard: https://img.icons8.com/pulsar-color/48/dashboard.png
+course: https://img.icons8.com/pulsar-color/48/online-learning.png
+batch: https://img.icons8.com/pulsar-color/48/group.png
+reports: https://img.icons8.com/pulsar-color/48/bar-chart.png
+feedback: https://img.icons8.com/pulsar-color/48/feedback.png
+settings: https://img.icons8.com/pulsar-color/48/settings.png
+supervisor: https://img.icons8.com/pulsar-color/48/manager.png
+students: https://img.icons8.com/pulsar-color/48/student-male.png
+test: https://img.icons8.com/pulsar-color/48/test-passed.png
+content: https://img.icons8.com/pulsar-color/48/content.png
+add: https://img.icons8.com/pulsar-color/48/add.png
+upload: https://img.icons8.com/pulsar-color/48/upload.png
+
+COMPANY LOGO:
+https://i.ibb.co/s9CvkVdd/aivision21-logo.png
+
+=============================================================
+COLOR SYSTEM — SOFT WARM PASTELS + #BD1313 ACCENT
+=============================================================
+
+PHILOSOPHY:
+Background = soft warm pastel (cream/off-white)
+Cards = pure white with soft shadows
+Accent = #BD1313 (ONE strong color for CTAs)
+Supporting = muted warm pastels per module
+Text = dark charcoal (never pure black)
+
+PRIMARY ACCENT:
+Brand: #BD1313
+Brand Hover: #991010
+Brand Deep: #7A0D0D
+Brand Light: #FDF2F2
+Brand Border: #F5BFBF
+Brand Glow: rgba(189,19,19,0.10)
+
+PAGE BACKGROUNDS (warm pastels):
+App outer bg: #FDF8F4 (warm cream)
+Sidebar bg: #FFFFFF (pure white)
+Content bg: #FDF8F4 (warm cream)
+Card bg: #FFFFFF (pure white)
+Alt card bg: #FFFCFA (very warm white)
+
+PASTEL MODULE COLORS:
+Dashboard: #FDF8F4 / #BD1313
+Courses: #FFF8F0 / #E8620A (warm orange)
+Batches: #F0F8FF / #2563EB (soft blue)
+Reports: #F0FDF4 / #16A34A (soft green)
+Supervisors: #FAF5FF / #7C3AED (soft purple)
+Feedback: #FFFBEB / #D97706 (soft amber)
+Settings: #F8FAFF / #475569 (soft slate)
+
+SOFT ACCENT PALETTE:
+Soft Peach: #FFF3EE
+Soft Rose: #FFF1F2
+Soft Amber: #FFFBEB
+Soft Green: #F0FDF4
+Soft Blue: #EFF6FF
+Soft Purple: #FAF5FF
+Soft Cream: #FDF8F4
+Soft Sky: #F0F9FF
+
+SUCCESS:
+Green: #16A34A
+Green Light: #DCFCE7
+Green Border: #86EFAC
+
+WARNING:
+Amber: #D97706
+Amber Light: #FEF3C7
+Amber Border: #FCD34D
+
+ERROR:
+Red: #DC2626
+Red Light: #FEF2F2
+
+NEUTRALS:
+Text Primary: #1A1A2E (warm dark, not pure black)
+Text Secondary: #4A4A68
+Text Muted: #6B6B8A
+Text Hint: #9898B0
+Border: #EEE8E3 (warm border)
+Border Strong: #DDD7D0
+Divider: #F5F0EB
+
+STATUS COLORS:
+Active: #16A34A / #DCFCE7
+Completed: #2563EB / #EFF6FF
+Expired: #DC2626 / #FEF2F2
+Draft: #D97706 / #FEF3C7
+Locked: #64748B / #F1F5F9
+Uploaded: #16A34A / #DCFCE7
+Pending: #D97706 / #FEF3C7
+
+GRADIENT BACKGROUNDS:
+Stat card 1: linear-gradient(135deg, #FFF3EE, white)
+Stat card 2: linear-gradient(135deg, #EFF6FF, white)
+Stat card 3: linear-gradient(135deg, #F0FDF4, white)
+Stat card 4: linear-gradient(135deg, #FAF5FF, white)
+
+Hero card: linear-gradient(135deg, #BD1313, #7A0D0D)
+Page bg: #FDF8F4 (flat warm cream — no gradient needed)
+
+COLOR RULES:
+✅ #BD1313 = ALL primary CTAs and active states
+✅ Soft pastels = card and section backgrounds
+✅ White cards on pastel page background
+✅ Warm borders (not cold grey)
+❌ NEVER cold blue as primary
+❌ NEVER pure grey backgrounds
+❌ NEVER neon or saturated colors
+❌ NEVER pure black text
+
+=============================================================
+TYPOGRAPHY — POPPINS ONLY
+=============================================================
+
+FONTS (load via Google Fonts):
+@import url('https://fonts.googleapis.com/css2?
+family=Poppins:ital,wght@0,300;0,400;0,500;
+0,600;0,700;0,800;1,400&display=swap');
+
+CSS VARIABLES:
+--font-primary: 'Poppins', sans-serif;
+
+USE POPPINS FOR EVERYTHING.
+NEVER use any other font.
+
+TYPOGRAPHY SCALE:
+Display: Poppins 28px weight 700
+Page Title: Poppins 22px weight 700
+Section Title: Poppins 18px weight 600
+Card Title: Poppins 16px weight 600
+Subtitle: Poppins 14px weight 500
+Body: Poppins 14px weight 400
+Small: Poppins 13px weight 400
+Label: Poppins 11px weight 600
+UPPERCASE, letter-spacing: 0.8px
+Button: Poppins 14px weight 600
+Input: Poppins 14px weight 400
+Caption: Poppins 12px weight 400
+Micro: Poppins 11px weight 400
+
+=============================================================
+SPACING SYSTEM — 8PT GRID
+=============================================================
+
+4px tight inline / icon gaps
+8px within component
+12px compact card padding
+16px standard padding
+20px section separation
+24px major sections
+32px page-level spacing
+48px large section gaps
+
+NEVER USE: 5, 7, 9, 11, 13, 15px
+
+FIXED HEIGHTS:
+Top bar: 56px
+Sidebar width: 64px (icon-only)
+Section header: 52px
+Table row: 52px
+Input height: 44px
+Button height: 44px (standard) / 48px (CTA)
+Stat card: 100px
+Wizard step bar: 48px
+Bottom CTA bar: 64px
+
+=============================================================
+BORDER RADIUS
+=============================================================
+
+Tags/chips: 6px
+Inputs: 10px
+Buttons: 10px
+Small cards: 12px
+Cards: 16px
+Large cards: 20px
+Modals: 20px
+Pills: 9999px
+Avatars: 50%
+App container: 0px (full browser, no device frame)
+Sidebar items: 12px
+
+=============================================================
+SHADOWS
+=============================================================
+
+Card default:
+0 2px 8px rgba(26,26,46,0.06)
+
+Card hover:
+0 8px 24px rgba(26,26,46,0.10)
+
+Card elevated:
+0 16px 40px rgba(26,26,46,0.12)
+
+Modal:
+0 20px 60px rgba(26,26,46,0.18)
+
+Button hover:
+0 4px 12px rgba(189,19,19,0.25)
+
+Input focus:
+0 0 0 3px rgba(189,19,19,0.10)
+
+Toast:
+0 8px 24px rgba(0,0,0,0.14)
+
+Sidebar:
+2px 0 8px rgba(26,26,46,0.06)
+
+=============================================================
+LAYOUT — NON NEGOTIABLE RULES
+=============================================================
+
+RULE 1: DESKTOP FIRST
+Primary = 1280px+ desktop
+Mobile = responsive secondary
+
+RULE 2: FULL BROWSER WIDTH
+No device frame (unlike EduVision)
+Content fills 100vw × 100vh
+Clean full-browser professional look
+
+RULE 3: WARM PASTEL PAGE BACKGROUND
+Page bg: #FDF8F4
+NOT white, NOT grey
+Warm cream gives premium feel
+White cards float on this background
+
+RULE 4: ICON-ONLY SIDEBAR (64px)
+Always visible on desktop
+No hamburger, no text labels
+Icons + tooltips on hover
+Active: #BD1313 accent
+
+RULE 5: ONE VIEWPORT = ONE SCREEN
+No full-page scroll
+Inner containers scroll where needed
+overflow: hidden on main wrapper
+
+APP SHELL STRUCTURE:
+┌──────────────────────────────────────────────┐
+│ SIDEBAR (64px) │ TOP BAR (56px) │
+│ ├──────────────────────────────┤
+│ │ MAIN CONTENT │
+│ │ height: calc(100vh - 56px) │
+│ │ overflow: hidden │
+│ │ bg: #FDF8F4 │
+└────────────────┴──────────────────────────────┘
+
+=============================================================
+SIDEBAR SPEC — ICON ONLY
+=============================================================
+
+Width: 64px
+Height: 100vh
+Background: white
+Border-right: 1px solid #EEE8E3
+Position: fixed left
+z-index: 100
+Display: flex column, align-center
+
+TOP (padding-top 16px):
+LearningVision logo mark:
+<img src="https://i.ibb.co/s9CvkVdd/aivision21-logo.png"
+height="28"
+style={{filter:'drop-shadow(0 1px 4px rgba(0,0,0,0.1))',
+               marginBottom:20}}/>
+
+NAVIGATION ITEMS (6 items):
+Each container: 44px × 44px
+border-radius: 12px
+margin: 3px 10px
+
+INACTIVE:
+bg: transparent
+icon: #9898B0, 22px
+
+ACTIVE:
+bg: #FDF2F2
+icon: #BD1313, 22px
+box-shadow: 0 2px 8px rgba(189,19,19,0.15)
+
+HOVER:
+bg: #FDF8F4
+icon: #4A4A68
+transform: scale(1.08)
+Show tooltip (right side):
+bg: #1A1A2E, text white
+Poppins 12px weight 500
+border-radius: 8px
+padding: 6px 12px
+position: absolute left: 72px
+white-space: nowrap
+z-index: 200
+
+NAV ITEMS + ICONS:
+
+1. Dashboard → pulsar-color dashboard icon
+2. Supervisors → pulsar-color manager icon
+3. Courses → pulsar-color online-learning icon
+4. Batches → pulsar-color group icon
+5. Reports → pulsar-color bar-chart icon
+6. Feedback → pulsar-color feedback icon
+
+BOTTOM (always at bottom):
+Settings icon (pulsar-color settings, 22px, #9898B0)
+onClick: setScreen('settings')
+
+AIVision21 logo (20px height, opacity 0.5)
+"v1.0" (10px #9898B0)
+
+NO hamburger
+NO text labels
+NO collapse button
+ALWAYS visible on desktop
+
+=============================================================
+TOP BAR SPEC
+=============================================================
+
+Height: 56px
+Background: white
+Border-bottom: 1px solid #EEE8E3
+Padding: 0 24px
+Display: flex, align-items: center, justify-content: space-between
+margin-left: 64px (sidebar offset)
+
+LEFT:
+Breadcrumb / page title
+Poppins 16px weight 600 #1A1A2E
+With sub-page: "Courses / Create Course"
+Separator: "/" muted
+
+CENTER (search bar):
+Width: 320px, height: 36px
+Background: #FDF8F4
+Border: 1px #EEE8E3
+Border-radius: 9999px
+Left: Search icon 16px #9898B0
+Placeholder: "Search..." Poppins 13px #9898B0
+Right: "⌘K" pill
+Focus: border #BD1313
+
+RIGHT (flex row, gap 12px):
+Notification bell:
+36×36px, border-radius: 8px
+bg: #FDF8F4, border: 1px #EEE8E3
+Bell icon 18px #4A4A68
+Red dot if unread: 8px, bg #BD1313
+
+Professor avatar (36px circle):
+bg: linear-gradient(135deg, #BD1313, #7A0D0D)
+Poppins 13px weight 700 white
+Initials: "PS" (Prof. name)
+cursor: pointer
+
+"Prof. Priya Sharma" Poppins 13px weight 500 #4A4A68
+(show on desktop, hide on mobile)
+
+=============================================================
+COMPONENTS
+=============================================================
+
+── PRIMARY BUTTON ──────────────────────────────────────────
+bg: #BD1313, color: white
+Poppins 14px weight 600
+height: 44px, padding: 0 20px
+border-radius: 10px, border: none
+cursor: pointer
+
+Hover: bg #991010, translateY(-1px)
+shadow 0 6px 20px rgba(189,19,19,0.30)
+Active: scale(0.97), bg #7A0D0D
+Disabled: bg #F5BFBF, color rgba(189,19,19,0.5)
+Loading: spinner (white 16px) + "Please wait..."
+
+── SECONDARY BUTTON ────────────────────────────────────────
+bg: transparent
+border: 1.5px solid #EEE8E3
+color: #4A4A68
+Poppins 14px weight 600
+height: 44px, radius: 10px
+Hover: bg #FDF8F4, border #DDD7D0
+
+── GHOST BUTTON ────────────────────────────────────────────
+bg: transparent, no border
+color: #BD1313, Poppins 14px weight 500
+height: 36px
+Hover: bg #FDF2F2
+
+── OUTLINE PRIMARY ─────────────────────────────────────────
+bg: transparent
+border: 1.5px solid #BD1313
+color: #BD1313
+Poppins 14px weight 600
+height: 44px, radius: 10px
+Hover: bg #FDF2F2
+
+── INPUT ───────────────────────────────────────────────────
+height: 44px, padding: 0 14px
+bg: white, border: 1.5px #EEE8E3
+border-radius: 10px
+Poppins 14px #1A1A2E
+placeholder: #9898B0
+label above: 11px uppercase #6B6B8A, letter-spacing 0.8px
+
+Focus: border #BD1313
+shadow 0 0 0 3px rgba(189,19,19,0.10)
+Error: border #DC2626, bg #FEF2F2
+Success: border #16A34A
+Disabled: bg #FDF8F4, color #9898B0
+
+── TEXTAREA ────────────────────────────────────────────────
+Same as input but:
+min-height: 80px, padding: 12px 14px
+resize: vertical
+line-height: 1.6
+
+── SELECT / DROPDOWN ───────────────────────────────────────
+Same styling as input
+height: 44px
+Has ChevronDown icon right side
+bg: white
+
+── CARD ────────────────────────────────────────────────────
+bg: white
+border: 1px solid #EEE8E3
+border-radius: 16px
+padding: 20px
+shadow: 0 2px 8px rgba(26,26,46,0.06)
+
+Hover (interactive):
+translateY(-2px)
+shadow: 0 8px 24px rgba(26,26,46,0.10)
+
+Selected:
+border: 2px solid #BD1313
+shadow: 0 0 0 3px rgba(189,19,19,0.08)
+
+── STAT CARD ───────────────────────────────────────────────
+bg: white + pastel gradient
+border: 1px #EEE8E3
+border-radius: 16px
+padding: 16px 20px
+height: 100px
+Top border strip: 3px solid (module color)
+position: relative, overflow: hidden
+
+Structure:
+Row 1: Icon (pulsar-color 28px) + trend badge
+Row 2: Value Poppins 26px weight 700 #1A1A2E
+Row 3: Label 11px uppercase #9898B0
+
+── BADGE / CHIP ────────────────────────────────────────────
+Padding: 4px 10px
+Border-radius: 6px
+Poppins 12px weight 600
+
+primary: bg #FDF2F2, color #BD1313, border #F5BFBF
+success: bg #DCFCE7, color #16A34A, border #86EFAC
+warning: bg #FEF3C7, color #D97706, border #FCD34D
+error: bg #FEF2F2, color #DC2626, border #FECACA
+info: bg #EFF6FF, color #2563EB, border #BFDBFE
+neutral: bg #F5F0EB, color #4A4A68, border #EEE8E3
+purple: bg #FAF5FF, color #7C3AED, border #DDD6FE
+
+── PROGRESS BAR ────────────────────────────────────────────
+Track: #EEE8E3
+Fill: #BD1313 (primary) or module color
+Heights: 4px / 6px / 8px
+Border-radius: 9999px
+Animate from 0% on mount: 800ms ease-out
+
+── TABLE ───────────────────────────────────────────────────
+bg: white, border: 1px #EEE8E3
+border-radius: 16px, overflow: hidden
+
+HEADER ROW (height 44px):
+bg: #FDF8F4
+border-bottom: 1px #EEE8E3
+Poppins 11px weight 600 #6B6B8A UPPERCASE
+
+DATA ROWS (height 52px):
+border-bottom: 1px #F5F0EB
+Poppins 14px #1A1A2E
+Hover: bg #FFFCFA
+
+LAST ROW: no border-bottom
+
+── TOAST ───────────────────────────────────────────────────
+Fixed top-center
+bg: #1A1A2E, color: white
+Poppins 13px weight 500
+border-radius: 9999px
+padding: 12px 20px
+shadow: 0 8px 24px rgba(0,0,0,0.14)
+Auto-dismiss: 3000ms
+
+── MODAL ───────────────────────────────────────────────────
+Backdrop: rgba(26,26,46,0.5) + blur(4px)
+Card: bg white, radius 20px
+max-width: 480px (standard) / 640px (wide)
+padding: 0 (header + body + footer structure)
+shadow: 0 20px 60px rgba(26,26,46,0.18)
+
+── EMPTY STATE ─────────────────────────────────────────────
+Center: illustration + title + desc + CTA
+Illustration: 100px
+Title: Poppins 16px weight 600 #1A1A2E
+Desc: Poppins 14px #6B6B8A
+bg: white card, radius 16px
+padding: 48px
+
+── WIZARD STEP INDICATOR ───────────────────────────────────
+Horizontal stepper at top of wizard screens
+Shows current step progress
+
+Each step:
+Circle (32px):
+Done: bg #16A34A, white checkmark
+Active: bg #BD1313, white number, shadow brand
+Upcoming: bg #F5F0EB, #9898B0 number
+
+    Label (below circle):
+      Poppins 12px weight 500
+      Done: #16A34A
+      Active: #BD1313
+      Upcoming: #9898B0
+
+    Connector line (between circles):
+      height: 2px, flex: 1
+      Done: bg #16A34A
+      Upcoming: bg #EEE8E3
+
+── SECTION HEADER (inside content) ─────────────────────────
+Height: 52px, flex-shrink: 0
+bg: white, border-bottom: 1px #EEE8E3
+padding: 0 24px
+display: flex, align-items: center
+justify-content: space-between
+
+LEFT (display flex, gap 10px, align center):
+Icon circle (32px, bg pastel, radius 8px)
+Title: Poppins 16px weight 600 #1A1A2E
+Subtitle: Poppins 12px #9898B0
+
+RIGHT: Action buttons
+
+=============================================================
+ANIMATIONS
+=============================================================
+
+@keyframes screenEnter {
+from { opacity: 0; transform: translateY(12px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+from { opacity: 0; transform: scale(0.96); }
+to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+from { opacity: 0; transform: translateX(20px); }
+to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+0% { background-position: 200% 0; }
+100% { background-position: -200% 0; }
+}
+
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.5; }
+}
+
+@keyframes toastEnter {
+from {
+opacity: 0;
+transform: translateX(-50%) translateY(-40px);
+}
+to {
+opacity: 1;
+transform: translateX(-50%) translateY(0);
+}
+}
+
+@keyframes badgePop {
+0% { transform: scale(0); opacity: 0; }
+60% { transform: scale(1.15); opacity: 1; }
+100% { transform: scale(1); }
+}
+
+.screen-enter {
+animation: screenEnter 280ms ease-out both;
+}
+
+.skeleton {
+background: linear-gradient(
+90deg,
+#F5F0EB 25%, #EEE8E3 50%,
+#F5F0EB 75%
+);
+background-size: 200% 100%;
+animation: shimmer 1.8s linear infinite;
+}
+
+.inner-scroll {
+overflow-y: auto;
+scrollbar-width: thin;
+scrollbar-color: #EEE8E3 transparent;
+}
+.inner-scroll::-webkit-scrollbar { width: 4px; }
+.inner-scroll::-webkit-scrollbar-thumb {
+background: #EEE8E3;
+border-radius: 9999px;
+}
+
+ANIMATION RULES:
+Every screen switch: screenEnter 280ms
+Cards hover: translateY(-2px) + shadow
+Buttons hover: translateY(-1px) + shadow
+Buttons active: scale(0.97)
+Tables hover: bg #FFFCFA
+Only animate: opacity, transform, filter
+NEVER animate: width, height, padding, margin
+
+=============================================================
+MOCK DATA
+=============================================================
+
+PROFESSOR:
+name: "Prof. Priya Sharma"
+initials: "PS"
+email: "priya.sharma@aivision.com"
+role: "Senior Instructor"
+department: "Engineering & Technology"
+institution: "AIVision Learning Institute"
+employeeId: "LV-PROF-0042"
+
+DASHBOARD STATS:
+totalCourses: 12
+totalBatches: 8
+activeLearners: 247
+totalContent: 156
+
+BATCH CREATION TREND (last 6 months):
+[{month:"Nov", batches:2},
+{month:"Dec", batches:3},
+{month:"Jan", batches:1},
+{month:"Feb", batches:4},
+{month:"Mar", batches:3},
+{month:"Apr", batches:5}]
+
+BATCH STATUS:
+active: 5, completed: 2, expired: 1
+
+COURSE STATUS:
+draft: 3, locked: 2, uploaded: 7
+
+CONTENT TYPES:
+document: 89, video: 67
+
+SUPERVISORS LIST:
+[{id:"SUP-001", name:"Rahul Verma",
+role:"Batch Supervisor", dept:"Engineering",
+status:"active", avatar:"RV",
+email:"rahul.v@aivision.com"},
+{id:"SUP-002", name:"Anita Desai",
+role:"Content Supervisor", dept:"Design",
+status:"active", avatar:"AD",
+email:"anita.d@aivision.com"},
+{id:"SUP-003", name:"Kiran Patel",
+role:"Assessment Lead", dept:"Engineering",
+status:"inactive", avatar:"KP",
+email:"kiran.p@aivision.com"},
+{id:"SUP-004", name:"Meera Singh",
+role:"Learning Coordinator", dept:"HR",
+status:"active", avatar:"MS",
+email:"meera.s@aivision.com"},
+{id:"SUP-005", name:"Arjun Nair",
+role:"Batch Supervisor", dept:"Product",
+status:"active", avatar:"AN",
+email:"arjun.n@aivision.com"}]
+
+COURSES LIST:
+[{id:"CRS-001",
+title:"React Advanced Patterns",
+category:"Frontend Development",
+level:"Advanced", status:"uploaded",
+sections:5, chapters:18,
+learners:42, created:"Mar 10"},
+{id:"CRS-002",
+title:"Python for Data Science",
+category:"Data & AI",
+level:"Intermediate", status:"uploaded",
+sections:4, chapters:14,
+learners:38, created:"Mar 5"},
+{id:"CRS-003",
+title:"UI/UX Fundamentals",
+category:"Design",
+level:"Beginner", status:"draft",
+sections:3, chapters:9,
+learners:0, created:"Apr 1"},
+{id:"CRS-004",
+title:"Leadership & Management",
+category:"Soft Skills",
+level:"Intermediate", status:"locked",
+sections:6, chapters:20,
+learners:55, created:"Feb 20"},
+{id:"CRS-005",
+title:"Cloud Architecture AWS",
+category:"Cloud & DevOps",
+level:"Advanced", status:"uploaded",
+sections:7, chapters:24,
+learners:29, created:"Jan 15"}]
+
+BATCHES LIST:
+[{id:"BAT-001", name:"React Batch 2025-A",
+course:"React Advanced Patterns",
+supervisor:"Rahul Verma",
+startDate:"Apr 1, 2025",
+duration:"8 weeks",
+students:42, status:"active"},
+{id:"BAT-002", name:"Python DS Batch B",
+course:"Python for Data Science",
+supervisor:"Anita Desai",
+startDate:"Mar 15, 2025",
+duration:"6 weeks",
+students:38, status:"active"},
+{id:"BAT-003", name:"UI/UX Jan Batch",
+course:"UI/UX Fundamentals",
+supervisor:"Meera Singh",
+startDate:"Jan 10, 2025",
+duration:"4 weeks",
+students:25, status:"completed"},
+{id:"BAT-004", name:"Leadership Q4",
+course:"Leadership & Management",
+supervisor:"Arjun Nair",
+startDate:"Oct 1, 2024",
+duration:"12 weeks",
+students:55, status:"expired"}]
+
+STUDENTS LIST:
+[{id:"STU-001", name:"Aarav Shah",
+email:"aarav.s@company.com",
+dept:"Engineering", batch:"React Batch 2025-A",
+progress:72, avatar:"AS"},
+{id:"STU-002", name:"Diya Mehta",
+email:"diya.m@company.com",
+dept:"Design", batch:"UI/UX Jan Batch",
+progress:90, avatar:"DM"},
+{id:"STU-003", name:"Rohan Gupta",
+email:"rohan.g@company.com",
+dept:"Engineering", batch:"Python DS Batch B",
+progress:45, avatar:"RG"},
+{id:"STU-004", name:"Kavya Iyer",
+email:"kavya.i@company.com",
+dept:"Product", batch:"React Batch 2025-A",
+progress:88, avatar:"KI"},
+{id:"STU-005", name:"Ishaan Bose",
+email:"ishaan.b@company.com",
+dept:"HR", batch:"Leadership Q4",
+progress:60, avatar:"IB"}]
+
+NOTIFICATIONS:
+[{id:1, title:"New batch enrollment",
+body:"12 students joined React Batch 2025-A",
+time:"2h ago", read:false, type:"batch"},
+{id:2, title:"Course review pending",
+body:"UI/UX Fundamentals needs your approval",
+time:"5h ago", read:false, type:"course"},
+{id:3, title:"Test results available",
+body:"Python DS Class Test results are ready",
+time:"Yesterday", read:true, type:"test"},
+{id:4, title:"Supervisor assigned",
+body:"Anita Desai added as content supervisor",
+time:"2 days ago", read:true, type:"supervisor"}]
+
+CATEGORIES:
+["Frontend Development", "Backend Development",
+"Data & AI", "Cloud & DevOps", "Design",
+"Soft Skills", "Leadership", "Product Management",
+"Cybersecurity", "Mobile Development"]
+
+SKILL LEVELS:
+["Beginner", "Intermediate", "Advanced", "Expert"]
+
+=============================================================
+SCREEN NAVIGATION
+=============================================================
+
+const [screen, setScreen] = useState('dashboard');
+
+MAIN SCREENS:
+'dashboard' — Main dashboard
+'supervisors' — Supervisor management
+'courses' — Course library
+'course-create' — Create course wizard
+'course-preview' — Course preview before save
+'batches' — All batches list
+'batch-create' — Create batch wizard
+'class-test' — Create class test
+'reports' — Reports overview
+'reports-batch' — Batch report detail
+'reports-student' — Student report detail
+'reports-test' — Student test report
+'feedback' — Feedback management
+'settings' — Settings
+
+WIZARD STATES:
+Course create steps: 'details' | 'sections' | 'chapters' | 'preview'
+Batch create steps: 'info' | 'select-course' | 'select-students' | 'review'
+Test create steps: 'config' | 'questions' | 'review'
+
+=============================================================
+UX PRINCIPLES
+=============================================================
+
+One primary CTA per screen — always visible
+Wizard flows: max 4 steps, show progress always
+Tables: always have search + filter
+Empty states: always encouraging + CTA button
+Every action shows toast confirmation
+Form validation before submit
+Save progress at each wizard step
+Breadcrumb on all sub-pages
+Back button always available in wizards
+Sticky bottom bar for wizard CTAs
+
+=============================================================
+COPY & TONE
+=============================================================
+
+Voice: Professional, efficient, warm
+Use: "Create" "Manage" "Review" "Configure"
+Formal but approachable
+Action-oriented button labels
+Never: "Error" → "Please check"
+Never: "Failed" → "Unable to process"
+Success messages: clear and specific
+"Course created successfully"
+"Batch configured and saved"
+"Test published to batch"
+
+=============================================================
+RESPONSIVE (SECONDARY)
+=============================================================
+
+Min width: 768px (tablet)
+Breakpoints: 768px / 1024px / 1280px
+
+ON TABLET (768px - 1024px):
+Sidebar stays icon-only
+Content area adjusts
+Tables scroll horizontally
+
+ON MOBILE (< 768px):
+Sidebar hidden, bottom navigation
+Single column layouts
+Cards stack vertically
+
+=============================================================
+END OF SYSTEM GUIDELINES
+=============================================================
+
+PROJECT: LearningVision Professor Portal
+COMPANY: AIVision21
+PRIMARY COLOR: #BD1313
+FONT: Poppins (all weights)
+LAYOUT: Icon-only sidebar 64px, desktop-first
+BACKGROUND: Warm cream #FDF8F4
+CARDS: Pure white on cream background
+ICONS: Icons8 Pulsar Color + Icons8 3D Fluency
+ILLUSTRATIONS: Icons8 Beam style
+STYLE: Warm professional EdTech SaaS
+100% READY TO BUILD
+=============================================================

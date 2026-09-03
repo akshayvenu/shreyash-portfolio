@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HireVision — Shreyash Patekar</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .decision-table { width:100%; border-collapse: collapse; margin-top: var(--sp-5); }
+  .decision-table th { text-align:left; font-family: var(--f-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color: var(--ink-faint); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); }
+  .decision-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align:top; }
+  .decision-table td:first-child { font-weight:600; white-space:nowrap; }
+  .flow-strip { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top: var(--sp-5); }
+  .flow-step { font-family: var(--f-mono); font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; background: var(--tape); color:#3C3628; padding:7px 12px; }
+  .flow-arrow { color: var(--ink-faint); font-size:13px; }
+  .case-links { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top: var(--sp-6); }
+  @media (max-width: 720px) { .case-links { grid-template-columns:1fr; } }
+  .case-link { background:#fff; border:1px solid var(--line); border-radius:var(--radius-s); padding:22px; display:block; transition:border-color 160ms ease, transform 160ms ease; }
+  .case-link:hover { border-color: var(--ink); transform: translateY(-3px); }
+  .case-link .t { font-family: var(--f-display); font-size:20px; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; margin-top:6px; }
+</style>
+</head>
+<body>
+
+<div class="filebar">
+  <div class="filebar-inner">
+    <a class="filebar-name" href="../Portfolio Home v2.dc.html">Shreyash Patekar<span>Product / UX designer</span></a>
+    <nav class="filebar-nav">
+      <a href="../Portfolio Home v2.dc.html#work" class="current">Work</a>
+      <a href="about.html">About</a>
+      <a class="cta" href="mailto:shreyashpatekar10@gmail.com">Email</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">Supporting work — HR-tech</div>
+  <h1 style="margin-top:14px; max-width:760px;">HireVision</h1>
+  <p class="voice" style="font-size:clamp(18px,2.2vw,22px); margin-top:16px; max-width:700px;">A seven-step joining flow for someone who has probably never filled in a KYC form before — and who is doing it while deciding whether they trust their new employer.</p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; align-items:center;">
+    <span class="mono" style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 12px; border-radius:2px; background: var(--ink); color: var(--paper);">Outcome</span>
+    <span style="font-size:16px; font-weight:500; max-width:700px;">Seven steps, a five-state document indicator and inline corrective errors — the candidate-facing counterpart to the HR-facing onboarding portal.</span>
+  </div>
+
+  <p class="muted" style="max-width:700px; margin-top:26px; font-size:15px;">This one is a write-up rather than a full case study: it shipped, but I no longer have the working prototype to show, and I would rather document it honestly at this depth than dress it up. The three case studies below carry the same thinking with the screens attached.</p>
+
+  <div class="flow-strip">
+    <span class="flow-step">Welcome</span><span class="flow-arrow">→</span>
+    <span class="flow-step">Offer Letter</span><span class="flow-arrow">→</span>
+    <span class="flow-step">Personal Info</span><span class="flow-arrow">→</span>
+    <span class="flow-step">Documents</span><span class="flow-arrow">→</span>
+    <span class="flow-step">KYC</span><span class="flow-arrow">→</span>
+    <span class="flow-step">Pre-Joining</span><span class="flow-arrow">→</span>
+    <span class="flow-step">Confirmation</span>
+  </div>
+
+  <h2 style="margin-top: var(--sp-8);">The problem</h2>
+  <p class="muted" style="max-width:700px; margin-top:14px; font-size:16px;">The HR side of onboarding is a work queue — you optimise it for throughput. The candidate side is the opposite: it is one person, once, with no training, no context for what a "Form 16" is, and a strong incentive to not look foolish in front of a new employer. Two audiences, two entirely different design problems, sharing one dataset.</p>
+  <p class="muted" style="max-width:700px; margin-top:14px; font-size:16px;">Most of the anxiety in that flow is not about the work — it's about not knowing whether you have finished, and not knowing whether what you uploaded was accepted. Both are status problems, so both were solved with status design rather than more copy.</p>
+
+  <h2 style="margin-top: var(--sp-8);">Decisions</h2>
+  <table class="decision-table">
+    <thead><tr><th>Element</th><th>Decision</th><th>Rationale · trade-off</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Step indicator</td>
+        <td>Persistent numbered progress bar, always visible</td>
+        <td>The single most common candidate question is "how much is left". Showing all seven steps up front risks looking daunting — worth it, because uncertainty is worse than a known length.</td>
+      </tr>
+      <tr>
+        <td>Document states</td>
+        <td>Five states per document, not two</td>
+        <td>Uploaded, under review, verified, rejected and not required are five genuinely different situations. A binary tick leaves a candidate refreshing an inbox — the same argument that produced <b>not_required</b> in the HR-facing portal.</td>
+      </tr>
+      <tr>
+        <td>Error handling</td>
+        <td>Inline, next to the field, with the fix stated</td>
+        <td>"Invalid PAN" is a dead end; "PAN should be 10 characters, like ABCDE1234F" is an instruction. Costs more copy per field and more localisation surface later.</td>
+      </tr>
+      <tr>
+        <td>Offer letter placement</td>
+        <td>Step 2, before any data entry</td>
+        <td>Nobody should type their bank details before they have read what they are accepting. Costs a step where a candidate can stall — which is the correct place for them to stall.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top: var(--sp-8);">What I'd change</h2>
+  <p class="muted" style="max-width:700px; margin-top:14px; font-size:16px;">It assumes a laptop and a scanner. A candidate joining their first job is far more likely to be doing this on a phone with a camera, and the document step was not designed for that. A mobile-first capture flow — photograph, auto-crop, confirm — would matter more than anything else on this list.</p>
+
+  <h2 style="margin-top: var(--sp-8);">The same thinking, with screens</h2>
+  <div class="case-links">
+    <a class="case-link" href="../Case - HRMS.dc.html">
+      <div class="mono" style="font-size:10.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-faint);">Case study 04</div>
+      <div class="t">AIVision HRMS Onboarding →</div>
+      <p class="muted small" style="margin-top:8px;">The HR-facing half of this exact flow, with the field-level audit trail and the <b>not_required</b> argument in full.</p>
+    </a>
+    <a class="case-link" href="../Case - Offboarding.dc.html">
+      <div class="mono" style="font-size:10.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-faint);">Case study 06</div>
+      <div class="t">Offboarding Portal →</div>
+      <p class="muted small" style="margin-top:8px;">The other end of the lifecycle — clearance, settlement and closure, with friction placed deliberately.</p>
+    </a>
+  </div>
+</div>
+
+<footer><div class="wrap footer-grid"><div class="mono small">© 2026 Shreyash Patekar</div><div class="footer-social"><a href="https://www.linkedin.com/in/shreyash-patekar-56215b309" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/shreyashpatekar_04" target="_blank" rel="noopener">Instagram</a><a href="mailto:shreyashpatekar10@gmail.com">Email</a></div><a href="../Portfolio Home v2.dc.html#work" class="mono small">← Back to work</a></div></footer>
+
+</body>
+</html>

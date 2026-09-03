@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LearningVision — Student Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html, body, #root { height: 100%; }
+  body { font-family: 'Poppins', sans-serif; background: #FDF8F4; color: #1A1A2E; }
+
+  @keyframes screenEnter {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes toastEnter {
+    from { opacity: 0; transform: translateX(-50%) translateY(-40px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(232,98,10,0.45); }
+    70%  { box-shadow: 0 0 0 8px rgba(232,98,10,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,98,10,0); }
+  }
+  @keyframes dotPulse {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30%           { transform: translateY(-6px); opacity: 1; }
+  }
+  @keyframes tooltipEnter {
+    from { opacity: 0; transform: translateY(-50%) translateX(-4px); }
+    to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+  }
+  @keyframes progressFill {
+    from { width: 0%; }
+    to   { width: var(--progress-width); }
+  }
+
+  .screen-enter { animation: screenEnter 240ms cubic-bezier(0.16,1,0.3,1) both; }
+
+  .inner-scroll {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #EEE8E3 transparent;
+  }
+  .inner-scroll::-webkit-scrollbar { width: 6px; }
+  .inner-scroll::-webkit-scrollbar-thumb {
+    background: #EEE8E3;
+    border-radius: 9999px;
+  }
+  .inner-scroll::-webkit-scrollbar-track { background: transparent; }
+
+  button { font-family: 'Poppins', sans-serif; }
+  input { font-family: 'Poppins', sans-serif; }
+
+  /* Button base classes */
+  .btn-primary {
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary:hover {
+    background: #991010 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(189,19,19,0.30);
+  }
+  .btn-primary:active {
+    transform: scale(0.97) translateY(0) !important;
+    background: #7A0D0D !important;
+    box-shadow: none !important;
+  }
+  .btn-secondary {
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .btn-secondary:hover { background: #FDF8F4; border-color: #DDD7D0; }
+  .btn-secondary:active { transform: scale(0.97); background: #F5F0EB; }
+  .btn-ghost { transition: background 0.15s, transform 0.15s; }
+  .btn-ghost:hover { background: #FDF2F2; }
+  .btn-ghost:active { transform: scale(0.96); }
+
+  /* Focus-visible rings */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid #BD1313;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible) { outline: none; }
+
+  /* Placeholder color */
+  input::placeholder,
+  textarea::placeholder {
+    color: #9898B0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Volume range slider */
+  input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+    margin-top: -4px;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    border-radius: 9999px;
+    height: 4px;
+  }
+  input[type=range]:focus { outline: none; }
+
+  /* User-select none on UI chrome */
+  .ui-chrome, .ui-chrome * {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="icons.jsx"></script>
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="data-step2.jsx"></script>
+<script type="text/babel" src="data-step3.jsx"></script>
+<script type="text/babel" src="data-step4.jsx"></script>
+<script type="text/babel" src="data-step5.jsx"></script>
+<script type="text/babel" src="data-step6.jsx"></script>
+<script type="text/babel" src="shell.jsx"></script>
+<script type="text/babel" src="dashboard.jsx"></script>
+<script type="text/babel" src="my-learning.jsx"></script>
+<script type="text/babel" src="batch-detail.jsx"></script>
+<script type="text/babel" src="tests.jsx"></script>
+<script type="text/babel" src="test-active.jsx"></script>
+<script type="text/babel" src="test-results.jsx"></script>
+<script type="text/babel" src="calendar.jsx"></script>
+<script type="text/babel" src="notifications.jsx"></script>
+<script type="text/babel" src="profile.jsx"></script>
+<script type="text/babel" src="learning-player.jsx"></script>
+<script type="text/babel" src="settings.jsx"></script>
+<script type="text/babel" src="tutorbot.jsx"></script>
+<script type="text/babel" src="analytics.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</body>
+</html>
